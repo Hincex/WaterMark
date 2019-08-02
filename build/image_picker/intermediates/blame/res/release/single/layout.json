@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout/notification_template_part_time.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f2d0aef6f1f3d6ba4579bb9d9fd9eada/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout/notification_action_tombstone.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f2d0aef6f1f3d6ba4579bb9d9fd9eada/res/layout/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout/notification_template_big_media_narrow_custom.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b959f54a95f3a14632fd83e4d8d24fab/res/layout/notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout/notification_action.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f2d0aef6f1f3d6ba4579bb9d9fd9eada/res/layout/notification_action.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout/notification_template_lines_media.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b959f54a95f3a14632fd83e4d8d24fab/res/layout/notification_template_lines_media.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout/notification_media_action.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b959f54a95f3a14632fd83e4d8d24fab/res/layout/notification_media_action.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout/notification_template_icon_group.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f2d0aef6f1f3d6ba4579bb9d9fd9eada/res/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout/notification_template_big_media.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b959f54a95f3a14632fd83e4d8d24fab/res/layout/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout/notification_template_big_media_narrow.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b959f54a95f3a14632fd83e4d8d24fab/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout/notification_template_media_custom.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b959f54a95f3a14632fd83e4d8d24fab/res/layout/notification_template_media_custom.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout/notification_template_big_media_custom.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b959f54a95f3a14632fd83e4d8d24fab/res/layout/notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout/notification_template_part_chronometer.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f2d0aef6f1f3d6ba4579bb9d9fd9eada/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout/notification_template_media.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b959f54a95f3a14632fd83e4d8d24fab/res/layout/notification_template_media.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout/notification_media_cancel_action.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b959f54a95f3a14632fd83e4d8d24fab/res/layout/notification_media_cancel_action.xml"
+    }
+]

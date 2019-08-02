@@ -1,0 +1,223 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:1:1-37:12
+INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:1:1-37:12
+INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:1:1-37:12
+INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:1:1-37:12
+MERGED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:2:1-23:12
+MERGED from [:shared_preferences] /Users/vincehe/flutter/git/New_App/build/shared_preferences/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:2:1-7:12
+MERGED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:2:1-22:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/legacy-support-v4-1.0.0.aar/a0371cbdec310ea0ff2524c4359653b9/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b959f54a95f3a14632fd83e4d8d24fab/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0.aar/e8ca66b341addd505ed46b9d5fceb836/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0.aar/ad41632d43d9f96c13f7e3e37415348b/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/legacy-support-core-utils-1.0.0.aar/ac409b5538a8ef88027bb2493085e3b5/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/loader-1.0.0.aar/934cfd8723317481c398c2a84f329ee5/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0.aar/3796cb5eb155738b02cdf135e12c99b6/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-1.0.0.aar/7792bbcfda8dd14a772ed17cfed8c154/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0.aar/8e7aa98d0c8c2b23fd2e98709861ce39/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-1.0.0.aar/2afae8af4e6e3d9d3acaa5330102b964/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/customview-1.0.0.aar/61f6dca906b6225cadb0db679edcaa35/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-1.0.0.aar/630f836d59b8093e56fe1022cd01b5db/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-1.0.0.aar/3cdc31620362d780d824fd55d375c694/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f2d0aef6f1f3d6ba4579bb9d9fd9eada/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0.aar/354cee0e504fc4be068df83003e23bf9/AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.0.0.aar/28a4821597157c7f08278a273fc96861/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-2.0.0.aar/4e361707c27469169601801637475452/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0.aar/862ab4856689001a8b89a8bd335e32bf/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0.aar/7696644a161732b400b7efd2b5446b31/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/documentfile-1.0.0.aar/7353735a19e6b83e27a88c5a20e1537b/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-1.0.0.aar/549661530a3bd622e121a743c9f579e9/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/print-1.0.0.aar/5b52ca84f36060e756b4b6fd04dce057/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0.aar/6582bbbf83f7bd4bfb30b081e9b39d12/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0.aar/35307c4e2f1b844671863ba0321d0a6b/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0.aar/2c87404624082ddc4e26396c50f01995/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:1:1-37:12
+INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:1:1-37:12
+INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:1:1-37:12
+	package
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:2:5-31
+		INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:1:1-37:12
+		INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:1:1-37:12
+		INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:1:11-69
+application
+ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:9:5-32:19
+MERGED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:11:5-21:19
+MERGED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:11:5-21:19
+MERGED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:10:5-20:19
+MERGED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:10:5-20:19
+MERGED from [androidx.core:core:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f2d0aef6f1f3d6ba4579bb9d9fd9eada/AndroidManifest.xml:22:5-89
+MERGED from [androidx.core:core:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f2d0aef6f1f3d6ba4579bb9d9fd9eada/AndroidManifest.xml:22:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0.aar/354cee0e504fc4be068df83003e23bf9/AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0.aar/354cee0e504fc4be068df83003e23bf9/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f2d0aef6f1f3d6ba4579bb9d9fd9eada/AndroidManifest.xml:22:18-86
+	android:label
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:11:9-29
+	android:icon
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:12:9-43
+	android:name
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:10:9-57
+activity#com.vince.newapp.MainActivity
+ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:13:9-31:20
+	android:launchMode
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:15:13-43
+	android:hardwareAccelerated
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:18:13-47
+	android:windowSoftInputMode
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:19:13-55
+	android:configChanges
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:17:13-144
+	android:theme
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:16:13-47
+	android:name
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:14:13-41
+meta-data#io.flutter.app.android.SplashScreenUntilFirstFrame
+ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:24:13-26:40
+	android:value
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:26:17-37
+	android:name
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:25:17-82
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:27:13-30:29
+action#android.intent.action.MAIN
+ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:28:17-68
+	android:name
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:28:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:29:17-76
+	android:name
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:29:27-74
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:33:5-75
+	android:name
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:33:22-72
+uses-permission#android.permission.INTERNET
+ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:34:5-67
+	android:name
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:34:22-64
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:35:5-81
+MERGED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:8:5-81
+MERGED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:8:5-81
+MERGED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:8:5-81
+MERGED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:8:5-81
+	android:name
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:35:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:36:5-80
+MERGED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:7:5-80
+MERGED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:7:5-80
+MERGED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:7:5-80
+MERGED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:7:5-80
+	android:name
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:36:22-77
+uses-sdk
+INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+MERGED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences] /Users/vincehe/flutter/git/New_App/build/shared_preferences/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences] /Users/vincehe/flutter/git/New_App/build/shared_preferences/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/legacy-support-v4-1.0.0.aar/a0371cbdec310ea0ff2524c4359653b9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/legacy-support-v4-1.0.0.aar/a0371cbdec310ea0ff2524c4359653b9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b959f54a95f3a14632fd83e4d8d24fab/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b959f54a95f3a14632fd83e4d8d24fab/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0.aar/e8ca66b341addd505ed46b9d5fceb836/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0.aar/e8ca66b341addd505ed46b9d5fceb836/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0.aar/ad41632d43d9f96c13f7e3e37415348b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0.aar/ad41632d43d9f96c13f7e3e37415348b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/legacy-support-core-utils-1.0.0.aar/ac409b5538a8ef88027bb2493085e3b5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/legacy-support-core-utils-1.0.0.aar/ac409b5538a8ef88027bb2493085e3b5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/loader-1.0.0.aar/934cfd8723317481c398c2a84f329ee5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/loader-1.0.0.aar/934cfd8723317481c398c2a84f329ee5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0.aar/3796cb5eb155738b02cdf135e12c99b6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0.aar/3796cb5eb155738b02cdf135e12c99b6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-1.0.0.aar/7792bbcfda8dd14a772ed17cfed8c154/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-1.0.0.aar/7792bbcfda8dd14a772ed17cfed8c154/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0.aar/8e7aa98d0c8c2b23fd2e98709861ce39/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0.aar/8e7aa98d0c8c2b23fd2e98709861ce39/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-1.0.0.aar/2afae8af4e6e3d9d3acaa5330102b964/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-1.0.0.aar/2afae8af4e6e3d9d3acaa5330102b964/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/customview-1.0.0.aar/61f6dca906b6225cadb0db679edcaa35/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/customview-1.0.0.aar/61f6dca906b6225cadb0db679edcaa35/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-1.0.0.aar/630f836d59b8093e56fe1022cd01b5db/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-1.0.0.aar/630f836d59b8093e56fe1022cd01b5db/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-1.0.0.aar/3cdc31620362d780d824fd55d375c694/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-1.0.0.aar/3cdc31620362d780d824fd55d375c694/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f2d0aef6f1f3d6ba4579bb9d9fd9eada/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f2d0aef6f1f3d6ba4579bb9d9fd9eada/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0.aar/354cee0e504fc4be068df83003e23bf9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0.aar/354cee0e504fc4be068df83003e23bf9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.0.0.aar/28a4821597157c7f08278a273fc96861/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.0.0.aar/28a4821597157c7f08278a273fc96861/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-2.0.0.aar/4e361707c27469169601801637475452/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-2.0.0.aar/4e361707c27469169601801637475452/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0.aar/862ab4856689001a8b89a8bd335e32bf/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0.aar/862ab4856689001a8b89a8bd335e32bf/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0.aar/7696644a161732b400b7efd2b5446b31/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0.aar/7696644a161732b400b7efd2b5446b31/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/documentfile-1.0.0.aar/7353735a19e6b83e27a88c5a20e1537b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/documentfile-1.0.0.aar/7353735a19e6b83e27a88c5a20e1537b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-1.0.0.aar/549661530a3bd622e121a743c9f579e9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-1.0.0.aar/549661530a3bd622e121a743c9f579e9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/print-1.0.0.aar/5b52ca84f36060e756b4b6fd04dce057/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/print-1.0.0.aar/5b52ca84f36060e756b4b6fd04dce057/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0.aar/6582bbbf83f7bd4bfb30b081e9b39d12/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0.aar/6582bbbf83f7bd4bfb30b081e9b39d12/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0.aar/35307c4e2f1b844671863ba0321d0a6b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0.aar/35307c4e2f1b844671863ba0321d0a6b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0.aar/2c87404624082ddc4e26396c50f01995/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0.aar/2c87404624082ddc4e26396c50f01995/AndroidManifest.xml:20:5-44
+INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.CAMERA
+ADDED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:9:5-65
+	android:name
+		ADDED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:9:22-62
+provider#io.flutter.plugins.imagepickersaver.ImagePickerFileProvider
+ADDED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:12:9-20:20
+	android:grantUriPermissions
+		ADDED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:16:13-47
+	android:authorities
+		ADDED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:14:13-74
+	android:exported
+		ADDED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:13:13-87
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:17:13-19:75
+	android:resource
+		ADDED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:19:17-72
+	android:name
+		ADDED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:18:17-67
+provider#io.flutter.plugins.imagepicker.ImagePickerFileProvider
+ADDED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:11:9-19:20
+	android:grantUriPermissions
+		ADDED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:15:13-47
+	android:authorities
+		ADDED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:13:13-74
+	android:exported
+		ADDED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:14:13-37
+	android:name
+		ADDED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:12:13-82

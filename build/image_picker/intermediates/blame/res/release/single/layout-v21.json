@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout-v21/notification_action.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f2d0aef6f1f3d6ba4579bb9d9fd9eada/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f2d0aef6f1f3d6ba4579bb9d9fd9eada/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f2d0aef6f1f3d6ba4579bb9d9fd9eada/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/res/merged/release/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/vincehe/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f2d0aef6f1f3d6ba4579bb9d9fd9eada/res/layout-v21/notification_template_icon_group.xml"
+    }
+]
