@@ -1,8 +1,11 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:new_app/models/store/model/index.dart';
-import 'package:new_app/utils/global_config.dart';
+import 'package:new_app/config/provider_config.dart';
+import 'package:new_app/config/theme_data.dart';
+import 'package:new_app/utils/theme_util.dart';
+import 'package:new_app/widgets/dialog.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
@@ -15,7 +18,11 @@ class Third extends StatefulWidget {
 
 class ThirdState extends State<Third> with TickerProviderStateMixin {
   CurvedAnimation curved; //曲线动画，动画插值，
+  CurvedAnimation light; //曲线动画，动画插值，
+
   AnimationController controller; //动画控制器
+  AnimationController lightcontroller; //动画控制器
+
   Future getUserSetting() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     double outputQuality = pref.getDouble("outputQuality");
@@ -25,13 +32,25 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
   }
 
   void initState() {
-    super.initState();
+    //获取用户自定义设置
     getUserSetting();
     controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 700));
+        vsync: this, duration: const Duration(milliseconds: 300));
+    lightcontroller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 300));
     curved = CurvedAnimation(
         parent: controller, curve: Curves.easeIn); //模仿小球自由落体运动轨迹
-    controller.forward();
+    light = CurvedAnimation(
+        parent: lightcontroller, curve: Curves.easeIn); //模仿小球自由落体运动轨迹
+    controller.forward().then((f) {
+      controller.reverse();
+    });
+    super.initState();
+  }
+
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   //列表卡片
@@ -54,75 +73,75 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
           style: TextStyle(color: Colors.grey)),
       onTap: () async {
         SharedPreferences pref = await SharedPreferences.getInstance();
-        showDialog<Null>(
-          context: context,
-          barrierDismissible: true,
-          builder: (BuildContext context) {
-            return SimpleDialog(
-              backgroundColor: Colors.white,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0)),
-              children: [
-                ListTile(
-                  title: Text('高'),
-                  subtitle: Text('质量最好,导出时间最长'),
-                  trailing: CircleAvatar(backgroundColor: Colors.blue),
-                  onTap: () {
-                    setState(() {
-                      pref.setDouble('outputQuality', 7.0);
-                      pref.setString('outputQualityText', '高');
-                      Setting.outputQuality['outputQuality'] = 7.0;
-                      Setting.outputQuality['outputQualityText'] = '高';
-                    });
-                    Navigator.of(context).pop();
-                  },
-                ),
-                ListTile(
-                  title: Text('中'),
-                  subtitle: Text('质量中等,导出时间一般'),
-                  trailing: CircleAvatar(backgroundColor: Colors.teal),
-                  onTap: () {
-                    setState(() {
-                      pref.setDouble('outputQuality', 5.0);
-                      pref.setString('outputQualityText', '中');
-                      Setting.outputQuality['outputQuality'] = 5.0;
-                      Setting.outputQuality['outputQualityText'] = '中';
-                    });
-                    Navigator.of(context).pop();
-                  },
-                ),
-                ListTile(
-                  title: Text('低'),
-                  subtitle: Text('质量较差,导出时间最快'),
-                  trailing: CircleAvatar(backgroundColor: Colors.yellow),
-                  onTap: () {
-                    setState(() {
-                      pref.setDouble('outputQuality', 3.0);
-                      pref.setString('outputQualityText', '低');
-                      Setting.outputQuality['outputQuality'] = 3.0;
-                      Setting.outputQuality['outputQualityText'] = '低';
-                    });
-                    Navigator.of(context).pop();
-                  },
-                )
-              ],
-            );
-          },
-        );
+        CustomSimpleDialog.dialog(context, [
+          ListTile(
+            title: Text('高'),
+            subtitle: Text('质量最好,导出时间最长'),
+            trailing: CircleAvatar(backgroundColor: Colors.blue),
+            onTap: () {
+              setState(() {
+                pref.setDouble('outputQuality', 7.0);
+                pref.setString('outputQualityText', '高');
+                Setting.outputQuality['outputQuality'] = 7.0;
+                Setting.outputQuality['outputQualityText'] = '高';
+              });
+              Navigator.of(context).pop();
+            },
+          ),
+          ListTile(
+            title: Text('中'),
+            subtitle: Text('质量中等,导出时间一般'),
+            trailing: CircleAvatar(backgroundColor: Colors.teal),
+            onTap: () {
+              setState(() {
+                pref.setDouble('outputQuality', 5.0);
+                pref.setString('outputQualityText', '中');
+                Setting.outputQuality['outputQuality'] = 5.0;
+                Setting.outputQuality['outputQualityText'] = '中';
+              });
+              Navigator.of(context).pop();
+            },
+          ),
+          ListTile(
+            title: Text('低'),
+            subtitle: Text('质量较差,导出时间最快'),
+            trailing: CircleAvatar(backgroundColor: Colors.yellow),
+            onTap: () {
+              setState(() {
+                pref.setDouble('outputQuality', 3.0);
+                pref.setString('outputQualityText', '低');
+                Setting.outputQuality['outputQuality'] = 3.0;
+                Setting.outputQuality['outputQualityText'] = '低';
+              });
+              Navigator.of(context).pop();
+            },
+          )
+        ]);
       },
     ));
   }
 
   Widget lightMode() {
-    return Container(
-      margin: EdgeInsets.only(top: 10),
-      child: IconButton(
-        icon: Icon(GlobalConfig.dark ? Icons.brightness_2 : Icons.brightness_5,
-            color: GlobalConfig.dark ? Colors.purple : Colors.orange),
-        onPressed: () {
-          themeMode(context);
-        },
-      ),
+    return AnimatedBuilder(
+      animation: light,
+      builder: (ctx, child) {
+        return Transform.rotate(
+          angle: -pi / 2 * light.value,
+          child: Container(
+            margin: EdgeInsets.only(top: 10),
+            child: IconButton(
+              icon: Icon(Themes.dark ? Icons.brightness_2 : Icons.brightness_5,
+                  color: Themes.dark ? Colors.purple : Colors.orange),
+              onPressed: () {
+                ThemeUtil.themeMode(context);
+                lightcontroller.forward().then((f) {
+                  lightcontroller.reverse();
+                });
+              },
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -132,154 +151,39 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
       leading: Icon(Icons.palette),
       trailing: CircleAvatar(
         radius: 15,
-        backgroundColor: Provider.of<ThemeChange>(context).color,
+        backgroundColor: Provider.of<CommonModel>(context).color,
       ),
       onTap: () async {
-        selectTheme(context);
+        ThemeUtil.selectTheme(context);
       },
     ));
-  }
-
-  //本地持久化主题设置
-  void saveTheme(index) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setInt('localTheme', index);
-    // print(index);
-  }
-
-//判断是否夜间模式
-  void setTheme(index, BuildContext context) {
-    if (GlobalConfig.dark) {
-      Toast.show('请先关闭夜间模式！', context,
-          duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER);
-    } else {
-      GlobalConfig.tempThemeData = GlobalConfig.themes[index];
-      GlobalConfig.themeData = GlobalConfig.themes[index];
-      Provider.of<ThemeChange>(context).themechange(GlobalConfig.themes[index]);
-      saveTheme(index);
-      Timer(Duration(milliseconds: 50), () {
-        // 只在倒计时结束时回调
-        Navigator.of(context).pop();
-      });
-    }
-  }
-
-//夜间/日间模式切换
-  void themeMode(BuildContext context) {
-    // controller.reverse();
-    GlobalConfig.dark = !GlobalConfig.dark;
-    /**主题切换逻辑 */
-    GlobalConfig.themeData =
-        GlobalConfig.dark ? GlobalConfig.themes[0] : GlobalConfig.tempThemeData;
-    Provider.of<ThemeChange>(context).themechange(GlobalConfig.themeData);
-    // controller.forward();
-  }
-
-//选择主题
-  void selectTheme(BuildContext context) {
-    //主题选择对话框
-    showDialog<Null>(
-      context: context,
-      barrierDismissible: true,
-      builder: (BuildContext context) {
-        return SimpleDialog(
-            backgroundColor: GlobalConfig.dark
-                ? ThemeData.dark().backgroundColor
-                : Colors.white,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0)),
-            title: Text(
-              '选择你的主题',
-              style: TextStyle(
-                  color: GlobalConfig.dark ? Colors.white : Colors.black),
-              textAlign: TextAlign.center,
-            ),
-            children: <Widget>[
-              ListTile(
-                title: Text('水鸭青',
-                    style: TextStyle(
-                        color:
-                            GlobalConfig.dark ? Colors.white : Colors.black)),
-                trailing: CircleAvatar(backgroundColor: Colors.teal),
-                onTap: () {
-                  setTheme(1, context);
-                },
-              ),
-              ListTile(
-                title: Text('基佬紫',
-                    style: TextStyle(
-                        color:
-                            GlobalConfig.dark ? Colors.white : Colors.black)),
-                trailing: CircleAvatar(backgroundColor: Colors.purple),
-                onTap: () {
-                  setTheme(2, context);
-                },
-              ),
-              ListTile(
-                title: Text('姨妈红',
-                    style: TextStyle(
-                        color:
-                            GlobalConfig.dark ? Colors.white : Colors.black)),
-                trailing: CircleAvatar(backgroundColor: Colors.red),
-                onTap: () {
-                  setTheme(3, context);
-                },
-              ),
-              ListTile(
-                title: Text('少女粉',
-                    style: TextStyle(
-                        color:
-                            GlobalConfig.dark ? Colors.white : Colors.black)),
-                trailing: CircleAvatar(backgroundColor: Colors.pinkAccent),
-                onTap: () {
-                  setTheme(4, context);
-                },
-              ),
-              ListTile(
-                title: Text('谷歌蓝',
-                    style: TextStyle(
-                        color:
-                            GlobalConfig.dark ? Colors.white : Colors.black)),
-                trailing: CircleAvatar(backgroundColor: Colors.blue),
-                onTap: () {
-                  setTheme(5, context);
-                },
-              ),
-              // ListTile(
-              //   title: Text('羽光白',
-              //       style: TextStyle(
-              //           color: GlobalConfig.dark ? Colors.white : Colors.black)),
-              //   trailing: CircleAvatar(backgroundColor: Colors.white),
-              //   onTap: () {
-              //     setTheme(6, context);
-              //   },
-              // ),
-            ]);
-      },
-    );
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: Provider.of<ThemeChange>(context).themeUsr,
+      theme: Provider.of<CommonModel>(context).themeUsr,
       home: Scaffold(
           appBar: AppBar(
             elevation: 0,
             centerTitle: true,
             title: Text('设置'),
           ),
-          body: FadeTransition(
-            opacity: curved,
-            child: ListView(
-              children: <Widget>[
-                outputQuality(),
-                theme(),
-                lightMode(),
-              ],
-            ),
-          )),
+          body: AnimatedBuilder(
+              animation: curved,
+              builder: (ctx, child) {
+                return Transform.translate(
+                  offset: Offset(0, (curved.value)),
+                  child: ListView(
+                    children: <Widget>[
+                      outputQuality(),
+                      theme(),
+                      lightMode(),
+                    ],
+                  ),
+                );
+              })),
     );
   }
 }

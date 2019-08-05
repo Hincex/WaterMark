@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_app/utils/global_config.dart';
+import 'package:new_app/config/theme_data.dart';
 
 class Second extends StatefulWidget {
   @override
@@ -11,7 +11,7 @@ class SecondState extends State<Second> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: GlobalConfig.themeData,
+      theme: Themes.themeData,
       home: Scaffold(
         appBar: AppBar(
           elevation: 0,

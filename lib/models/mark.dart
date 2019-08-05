@@ -54,27 +54,14 @@ class Mark {
     )
   ];
   static Widget markRatio(int key, Function func) {
-    // return RadioListTile(
-    //   value: key,
-    //   groupValue: _newValue,
-    //   title: Text(key),
-    //   onChanged: (value) {
-    //     func(value);
-    //   },
-    // );
     return ListTile(
-      title: Center(child: Text(Mark.mark[Brand.key][key]['title']),),
+      title: Center(
+        child: Text(Mark.mark[Brand.key][key]['title']),
+      ),
       onTap: () {
         func(key);
       },
     );
-    // return ListView.builder(
-    //       scrollDirection: Axis.vertical,
-    //       // padding: EdgeInsets.all(8.0),
-    //       reverse: false,
-    //       itemBuilder: (_, int index) => _tools[index],
-    //       itemCount: _tools.length,
-    //     );
   }
 
   static dynamic key = 0;

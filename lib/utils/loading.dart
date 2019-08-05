@@ -3,7 +3,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loading {
   static bool loading = false;
-  static Widget loadingScreen(Widget widget,String loadingText) {
+  static Widget loadingScreen(Widget widget, String loadingText) {
     if (Loading.loading) {
       return Stack(
         children: <Widget>[
@@ -21,7 +21,10 @@ class Loading {
                 size: 50,
                 type: SpinKitWaveType.center,
               ),
-              Text(loadingText,style: TextStyle(color: Colors.white),)
+              Text(
+                loadingText,
+                style: TextStyle(color: Colors.white),
+              )
             ],
           )
         ],
