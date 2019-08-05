@@ -31,6 +31,7 @@ class FirstDetailState extends State<FirstDetail>
   final GlobalKey globalKey = GlobalKey();
   final GlobalKey appbar = GlobalKey();
   final GlobalKey imgkey = GlobalKey();
+  @override
   void initState() {
     ToolInfo.controller =
         AnimationController(vsync: this, duration: Duration(milliseconds: 700));
@@ -56,10 +57,12 @@ class FirstDetailState extends State<FirstDetail>
     super.initState();
   }
 
+  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
   }
 
+  @override
   void dispose() {
     //将默认置为0,避免换了水印之后其他品牌没有该索引
     Mark.key = 0;

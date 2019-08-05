@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'dart:math';
-
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:new_app/config/provider_config.dart';
 import 'package:new_app/config/theme_data.dart';
 import 'package:new_app/utils/theme_util.dart';
 import 'package:new_app/widgets/dialog.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
@@ -22,8 +23,10 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
 
   AnimationController controller; //动画控制器
   AnimationController lightcontroller; //动画控制器
+  String sDocumentDir;
 
   Future getUserSetting() async {
+    sDocumentDir = (await getApplicationDocumentsDirectory()).toString();
     SharedPreferences pref = await SharedPreferences.getInstance();
     double outputQuality = pref.getDouble("outputQuality");
     String outputQualityText = pref.getString("outputQualityText");
@@ -31,6 +34,7 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
     Setting.outputQuality['outputQualityText'] = outputQualityText;
   }
 
+  @override
   void initState() {
     //获取用户自定义设置
     getUserSetting();
@@ -43,11 +47,12 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
     light = CurvedAnimation(
         parent: lightcontroller, curve: Curves.easeIn); //模仿小球自由落体运动轨迹
     controller.forward().then((f) {
-      controller.reverse();
+      // controller.reverse();
     });
     super.initState();
   }
 
+  @override
   void dispose() {
     controller.dispose();
     super.dispose();
@@ -64,6 +69,19 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
     );
   }
 
+  //导出路径
+  Widget outputPath() {
+    return listCard(ListTile(
+      title: Text('导出路径'),
+      leading: Icon(Icons.folder),
+      subtitle: sDocumentDir == null ? null : Text(sDocumentDir),
+      onTap: () async {
+        // String sDocumentDir = (await getApplicationDocumentsDirectory()).path;
+        // debugPrint(sDocumentDir);
+      },
+    ));
+  }
+
   //导出质量选项
   Widget outputQuality() {
     return listCard(ListTile(
@@ -73,7 +91,7 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
           style: TextStyle(color: Colors.grey)),
       onTap: () async {
         SharedPreferences pref = await SharedPreferences.getInstance();
-        CustomSimpleDialog.dialog(context, [
+        CustomSimpleDialog.dialog(context, '导出质量选择', [
           ListTile(
             title: Text('高'),
             subtitle: Text('质量最好,导出时间最长'),
@@ -121,6 +139,20 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
     ));
   }
 
+  Widget theme() {
+    return listCard(ListTile(
+      title: Text('主题选择'),
+      leading: Icon(Icons.palette),
+      trailing: CircleAvatar(
+        radius: 15,
+        backgroundColor: Provider.of<CommonModel>(context).color,
+      ),
+      onTap: () async {
+        ThemeUtil.selectTheme(context);
+      },
+    ));
+  }
+
   Widget lightMode() {
     return AnimatedBuilder(
       animation: light,
@@ -145,20 +177,6 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
     );
   }
 
-  Widget theme() {
-    return listCard(ListTile(
-      title: Text('主题选择'),
-      leading: Icon(Icons.palette),
-      trailing: CircleAvatar(
-        radius: 15,
-        backgroundColor: Provider.of<CommonModel>(context).color,
-      ),
-      onTap: () async {
-        ThemeUtil.selectTheme(context);
-      },
-    ));
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -177,6 +195,7 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
                   offset: Offset(0, (curved.value)),
                   child: ListView(
                     children: <Widget>[
+                      outputPath(),
                       outputQuality(),
                       theme(),
                       lightMode(),

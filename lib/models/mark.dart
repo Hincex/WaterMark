@@ -55,8 +55,9 @@ class Mark {
   ];
   static Widget markRatio(int key, Function func) {
     return ListTile(
+      // title: Text(Mark.mark[Brand.key][key]['title']),
       title: Center(
-        child: Text(Mark.mark[Brand.key][key]['title']),
+        child: Mark.mark[Brand.key][key]['pics'],
       ),
       onTap: () {
         func(key);

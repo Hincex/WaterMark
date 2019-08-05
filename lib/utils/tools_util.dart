@@ -13,6 +13,7 @@ class ToolInfo {
   static bool size = false;
   static bool position = false;
   static bool change = false;
+  static bool slider = false;
   static AnimationController controller;
   static Animation animation;
 }
@@ -23,6 +24,7 @@ class WaterInfo {
   static double right;
   static double bottom = 10;
   static double left = 10;
+  static double step = 5;
 }
 
 //图片信息
@@ -171,6 +173,44 @@ class Tools {
     ));
   }
 
+  //移动步长按钮
+  static Widget stepBtn(BuildContext context) {
+    return Container(
+        child: InkWell(
+      child: Container(
+        height: 70,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(Icons.flight, color: Theme.of(context).primaryColor),
+            Text(
+              '步长',
+              style: TextStyle(color: Theme.of(context).primaryColor),
+            ),
+          ],
+        ),
+      ),
+      onTap: () {
+        Provider.of<CommonModel>(context).sliderUtil();
+      },
+    ));
+  }
+
+  //滑块按钮
+  static Widget sliderBtn(BuildContext context) {
+    return Container(
+      child: Slider(
+        activeColor: Theme.of(context).primaryColor,
+        min: 1,
+        max: 100,
+        value: WaterInfo.step,
+        onChanged: (newValue) {
+          Provider.of<CommonModel>(context).sliderVal(newValue);
+        },
+      ),
+    );
+  }
+
   //水印位置按钮
   static Widget changeBtn(BuildContext context) {
     return Container(
@@ -190,7 +230,11 @@ class Tools {
       ),
       onTap: () {
         CustomSimpleDialog.dialog(
-            context, Info.mark.map((radio) => radio).toList());
+            context,
+            '水印列表',
+            Info.mark.map((radio) => radio).toList(),
+            Colors.white,
+            Colors.black);
       },
     ));
   }
@@ -232,7 +276,17 @@ class Tools {
         upBtn(context),
         rightBtn(context),
         downBtn(context),
-        leftBtn(context)
+        leftBtn(context),
+        stepBtn(context)
+      ];
+    } else if (ToolInfo.slider) {
+      return [
+        backBtn(context),
+        sliderBtn(context),
+        Text(
+          WaterInfo.step.roundToDouble().toString() + 'px',
+          style: TextStyle(color: Colors.black),
+        )
       ];
     }
   }
@@ -254,7 +308,7 @@ class Tools {
             child: Padding(
               padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: bar(context),
               ),
             )));

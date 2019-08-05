@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:new_app/config/theme_data.dart';
 import 'package:new_app/models/public.dart';
 import 'package:new_app/utils/pics_util.dart';
+import 'package:new_app/widgets/dialog.dart';
 import '../models/brand.dart';
 import 'package:flutter/animation.dart';
 
@@ -15,8 +16,8 @@ class FirstState extends State<First> with TickerProviderStateMixin {
   List _list = [];
   CurvedAnimation curved; //曲线动画，动画插值，
   AnimationController controller; //动画控制器
+  @override
   void initState() {
-    super.initState();
     controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 700));
     curved = CurvedAnimation(
@@ -26,10 +27,12 @@ class FirstState extends State<First> with TickerProviderStateMixin {
       _list.add(brandCard(value, key));
     });
     controller.forward().then((f) {
-      controller.reverse();
+      // controller.reverse();
     });
+    super.initState();
   }
 
+  @override
   void dispose() {
     controller.dispose();
     //销毁后清空品牌列表
@@ -53,60 +56,42 @@ class FirstState extends State<First> with TickerProviderStateMixin {
                       child: brand,
                       onTap: () {
                         Brand.key = key;
-                        showDialog<Null>(
-                          context: context,
-                          barrierDismissible: true,
-                          builder: (BuildContext context) {
-                            return SimpleDialog(
-                                backgroundColor: Themes.dark
-                                    ? ThemeData.dark().backgroundColor
-                                    : Colors.white,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15.0)),
-                                title: Text(
-                                  '选择图片',
-                                  textAlign: TextAlign.center,
-                                ),
-                                children: <Widget>[
-                                  SimpleDialogOption(
-                                    child: ListTile(
-                                      title: Text(
-                                        '拍照',
-                                      ),
-                                      trailing: Icon(Icons.camera),
-                                    ),
-                                    onPressed: () async {
-                                      await PicUtil.takePic();
-                                      //先关闭对话框
-                                      Navigator.of(context).pop();
-                                      if (PublicInfo.img != null) {
-                                        //再进入编辑界面
-                                        Navigator.of(context)
-                                            .pushNamed("/detail");
-                                      }
-                                    },
-                                  ),
-                                  SimpleDialogOption(
-                                    child: ListTile(
-                                      title: Text(
-                                        '图库',
-                                      ),
-                                      trailing: Icon(Icons.insert_photo),
-                                    ),
-                                    onPressed: () async {
-                                      await PicUtil.getGallery();
-                                      //先关闭对话框
-                                      Navigator.of(context).pop();
-                                      if (PublicInfo.img != null) {
-                                        //再进入编辑界面
-                                        Navigator.of(context)
-                                            .pushNamed("/detail");
-                                      }
-                                    },
-                                  )
-                                ]);
-                          },
-                        );
+                        CustomSimpleDialog.dialog(context, '选择图片', [
+                          SimpleDialogOption(
+                            child: ListTile(
+                              title: Text(
+                                '拍照',
+                              ),
+                              trailing: Icon(Icons.camera),
+                            ),
+                            onPressed: () async {
+                              await PicUtil.takePic();
+                              //先关闭对话框
+                              Navigator.of(context).pop();
+                              if (PublicInfo.img != null) {
+                                //再进入编辑界面
+                                Navigator.of(context).pushNamed("/detail");
+                              }
+                            },
+                          ),
+                          SimpleDialogOption(
+                            child: ListTile(
+                              title: Text(
+                                '图库',
+                              ),
+                              trailing: Icon(Icons.insert_photo),
+                            ),
+                            onPressed: () async {
+                              await PicUtil.getGallery();
+                              //先关闭对话框
+                              Navigator.of(context).pop();
+                              if (PublicInfo.img != null) {
+                                //再进入编辑界面
+                                Navigator.of(context).pushNamed("/detail");
+                              }
+                            },
+                          )
+                        ]);
                       })));
         });
   }

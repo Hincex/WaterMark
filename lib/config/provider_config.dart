@@ -30,10 +30,15 @@ class CommonModel with ChangeNotifier {
       ToolInfo.tool = false;
       ToolInfo.toolbar = false;
       ToolInfo.position = false;
-    } //非顶层按钮则返回主工具栏
+    } //次顶层返回按钮
     else {
-      ToolInfo.toolbar = true;
-      ToolInfo.position = false;
+      if (ToolInfo.position == false) {
+        ToolInfo.position = true;
+        ToolInfo.slider = false;
+      } else {
+        ToolInfo.toolbar = true;
+        ToolInfo.position = false;
+      }
     }
     notifyListeners();
   }
@@ -55,25 +60,38 @@ class CommonModel with ChangeNotifier {
   }
 
   void upUtil() {
-    WaterInfo.bottom += 5;
+    WaterInfo.bottom += WaterInfo.step;
     //通知consumer
     notifyListeners();
   }
 
   void rightUtil() {
-    WaterInfo.left += 5;
+    WaterInfo.left += WaterInfo.step;
     //通知consumer
     notifyListeners();
   }
 
   void downUtil() {
-    WaterInfo.bottom -= 5;
+    WaterInfo.bottom -= WaterInfo.step;
     //通知consumer
     notifyListeners();
   }
 
   void leftUtil() {
-    WaterInfo.left -= 5;
+    WaterInfo.left -= WaterInfo.step;
+    //通知consumer
+    notifyListeners();
+  }
+
+  void sliderUtil() {
+    ToolInfo.position = false;
+    ToolInfo.slider = true;
+    //通知consumer
+    notifyListeners();
+  }
+
+  void sliderVal(double newValue) {
+    WaterInfo.step = newValue;
     //通知consumer
     notifyListeners();
   }

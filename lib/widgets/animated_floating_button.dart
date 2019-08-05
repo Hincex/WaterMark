@@ -64,7 +64,7 @@ class _AnimatedFloatingButtonState extends State<AnimatedFloatingButton>
             ),
           ),
           backgroundColor: Colors.white,
-          shape: FloatingBorder(),
+          // shape: FloatingBorder(),
         ),
       ),
     );

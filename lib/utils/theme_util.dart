@@ -45,7 +45,7 @@ class ThemeUtil {
 //选择主题
   static void selectTheme(BuildContext context) {
     //主题选择对话框
-    CustomSimpleDialog.dialog(context, [
+    CustomSimpleDialog.dialog(context, '选择主题', [
       ListTile(
         title: Text('水鸭青',
             style: TextStyle(color: Themes.dark ? Colors.white : Colors.black)),

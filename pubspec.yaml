@@ -35,6 +35,8 @@ dependencies:
   flutter_spinkit:
   # image_gallery_saver: 
   shared_preferences:
+  # 文件路径
+  path_provider:
 dev_dependencies:
   flutter_test:
     sdk: flutter
