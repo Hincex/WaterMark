@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class Loading {
-  static bool loading = false;
-  static Widget loadingScreen(Widget widget, String loadingText) {
-    if (Loading.loading) {
+class Loading extends StatelessWidget {
+  static bool loading;
+  Widget child;
+  String loadingText;
+  bool isloading;
+  Loading({this.child, this.loadingText, this.isloading});
+  @override
+  Widget build(BuildContext context) {
+    if (isloading) {
       return Stack(
         children: <Widget>[
-          widget,
+          child,
           Opacity(
               opacity: 0.8,
               child: ModalBarrier(
@@ -30,7 +35,7 @@ class Loading {
         ],
       );
     } else {
-      return widget;
+      return child;
     }
   }
 }

@@ -34,9 +34,13 @@ class PicInfo {
   static double width;
 }
 
-class Tools {
-  //通用返回按钮
-  static Widget backBtn(BuildContext context) {
+class CommonBtn extends StatelessWidget {
+  final String text;
+  final IconData icon;
+  final Function func;
+  CommonBtn({@required this.text, this.icon, this.func});
+  @override
+  Widget build(BuildContext context) {
     return Container(
         child: InkWell(
       child: Container(
@@ -44,161 +48,25 @@ class Tools {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(Icons.chevron_left, color: Colors.white),
+            Icon(icon, color: Colors.white),
             Text(
-              '返回',
+              text,
               style: TextStyle(color: Colors.white),
             ),
           ],
         ),
       ),
       onTap: () {
-        // ToolInfo.controller.reverse();
-        Provider.of<CommonModel>(context).backUtil();
+        func();
+        // Provider.of<CommonModel>(context).backUtil();
       },
     ));
   }
+}
 
-  //水印位置按钮
-  static Widget posBtn(BuildContext context) {
-    return Container(
-        child: InkWell(
-      child: Container(
-        height: 70,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(Icons.swap_vert, color: Colors.white),
-            Text(
-              '水印位置',
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
-        ),
-      ),
-      onTap: () {
-        Provider.of<CommonModel>(context).posUtil();
-      },
-    ));
-  }
-
-  //向上按钮
-  static Widget upBtn(BuildContext context) {
-    return Container(
-        child: InkWell(
-      child: Container(
-        height: 70,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(Icons.arrow_upward, color: Colors.white),
-            Text(
-              '向上',
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
-        ),
-      ),
-      onTap: () {
-        Provider.of<CommonModel>(context).upUtil();
-      },
-    ));
-  }
-
-  //向右按钮
-  static Widget rightBtn(BuildContext context) {
-    return Container(
-        child: InkWell(
-      child: Container(
-        height: 70,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(Icons.arrow_forward, color: Colors.white),
-            Text(
-              '向右',
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
-        ),
-      ),
-      onTap: () {
-        Provider.of<CommonModel>(context).rightUtil();
-      },
-    ));
-  }
-
-  //向下按钮
-  static Widget downBtn(BuildContext context) {
-    return Container(
-        child: InkWell(
-      child: Container(
-        height: 70,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(Icons.arrow_downward, color: Colors.white),
-            Text(
-              '向下',
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
-        ),
-      ),
-      onTap: () {
-        Provider.of<CommonModel>(context).downUtil();
-      },
-    ));
-  }
-
-  //向左按钮
-  static Widget leftBtn(BuildContext context) {
-    return Container(
-        child: InkWell(
-      child: Container(
-        height: 70,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(Icons.arrow_back, color: Colors.white),
-            Text(
-              '向左',
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
-        ),
-      ),
-      onTap: () {
-        Provider.of<CommonModel>(context).leftUtil();
-      },
-    ));
-  }
-
-  //移动步长按钮
-  static Widget stepBtn(BuildContext context) {
-    return Container(
-        child: InkWell(
-      child: Container(
-        height: 70,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(Icons.flight, color: Colors.white),
-            Text(
-              '步长',
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
-        ),
-      ),
-      onTap: () {
-        Provider.of<CommonModel>(context).sliderUtil();
-      },
-    ));
-  }
-
-  //滑块按钮
-  static Widget sliderBtn(BuildContext context) {
+class SliderBtn extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return Container(
       child: Slider(
         activeColor: Colors.white,
@@ -211,97 +79,131 @@ class Tools {
       ),
     );
   }
+}
 
-  //切换水印按钮
-  static Widget changeBtn(BuildContext context) {
-    return Container(
-        child: InkWell(
-      child: Container(
-        height: 70,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(Icons.phone_android, color: Colors.white),
-            Text(
-              '切换水印',
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
-        ),
-      ),
-      onTap: () {
-        if (Setting.usrMark != null) {
-          CustomSimpleDialog.dialog(
-              context,
-              '自定义水印列表',
-              Info.mark.map((radio) => radio).toList(),
-              Colors.white,
-              Colors.black);
-        } else {
-          CustomSimpleDialog.dialog(
-              context,
-              '水印列表',
-              Info.mark.map((radio) => radio).toList(),
-              Colors.white,
-              Colors.black);
-        }
-      },
-    ));
+class ToolBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+        animation: ToolInfo.animation,
+        builder: (ctx, child) {
+          return Transform.translate(
+              offset: Offset(0, -(ToolInfo.animation.value) * 10),
+              child: Transform.scale(
+                  scale: ToolInfo.animation.value, child: child));
+        },
+        child: Container(
+            width: MediaQuery.of(context).size.width - 100,
+            decoration: BoxDecoration(
+                color:
+                    Themes.dark ? Colors.grey : Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular((15.0))),
+            child: Padding(
+                padding: EdgeInsets.fromLTRB(20, 0, 20, 0), child: Bar())));
   }
+}
 
-  //重置修改按钮
-  static Widget resetBtn(BuildContext context) {
-    return Container(
-        child: InkWell(
-      child: Container(
-        height: 70,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(Icons.refresh, color: Colors.white),
-            Text(
-              '重置修改',
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
-        ),
-      ),
-      onTap: () {
-        Provider.of<CommonModel>(context).resetUtil();
-      },
-    ));
-  }
+class Bar extends StatelessWidget {
+  List<Widget> toolbar;
 
-  static List<Widget> bar(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     if (ToolInfo.toolbar) {
-      return [
-        backBtn(context),
-        posBtn(context),
-        changeBtn(context),
-        resetBtn(context)
+      toolbar = [
+        CommonBtn(
+            text: '返回',
+            icon: Icons.chevron_left,
+            func: () {
+              Provider.of<CommonModel>(context).backUtil();
+            }),
+        CommonBtn(
+            text: '水印位置',
+            icon: Icons.swap_vert,
+            func: () {
+              Provider.of<CommonModel>(context).posUtil();
+            }),
+        CommonBtn(
+            text: '切换水印',
+            icon: Icons.phone_android,
+            func: () {
+              if (Setting.usrMark != null) {
+                CustomSimpleDialog.dialog(
+                    context,
+                    '自定义水印列表',
+                    Info.mark.map((radio) => radio).toList(),
+                    Colors.white,
+                    Colors.black);
+              } else {
+                CustomSimpleDialog.dialog(
+                    context,
+                    '水印列表',
+                    Info.mark.map((radio) => radio).toList(),
+                    Colors.white,
+                    Colors.black);
+              }
+            }),
+        CommonBtn(
+            text: '重置修改',
+            icon: Icons.refresh,
+            func: () {
+              Provider.of<CommonModel>(context).resetUtil();
+            }),
       ];
     } else if (ToolInfo.position) {
-      return [
-        backBtn(context),
-        upBtn(context),
-        rightBtn(context),
-        downBtn(context),
-        leftBtn(context),
-        stepBtn(context)
+      toolbar = [
+        CommonBtn(
+            text: '返回',
+            icon: Icons.chevron_left,
+            func: () {
+              Provider.of<CommonModel>(context).backUtil();
+            }),
+        CommonBtn(
+            text: '向上',
+            icon: Icons.arrow_upward,
+            func: () {
+              Provider.of<CommonModel>(context).upUtil();
+            }),
+        CommonBtn(
+            text: '向右',
+            icon: Icons.arrow_forward,
+            func: () {
+              Provider.of<CommonModel>(context).rightUtil();
+            }),
+        CommonBtn(
+            text: '向下',
+            icon: Icons.arrow_downward,
+            func: () {
+              Provider.of<CommonModel>(context).downUtil();
+            }),
+        CommonBtn(
+            text: '向左',
+            icon: Icons.arrow_back,
+            func: () {
+              Provider.of<CommonModel>(context).leftUtil();
+            }),
+        CommonBtn(
+            text: '移动步长',
+            icon: Icons.flight,
+            func: () {
+              Provider.of<CommonModel>(context).sliderUtil();
+            }),
       ];
     } else if (ToolInfo.slider) {
-      return [
-        backBtn(context),
-        sliderBtn(context),
+      toolbar = [
+        CommonBtn(
+            text: '返回',
+            icon: Icons.chevron_left,
+            func: () {
+              Provider.of<CommonModel>(context).backUtil();
+            }),
+        SliderBtn(),
         Text(
           WaterInfo.step.roundToDouble().toString() + 'px',
           style: TextStyle(color: Colors.white),
         )
       ];
     }
-  }
 
-  static AnimatedBuilder toolbar(BuildContext context) {
     return AnimatedBuilder(
         animation: ToolInfo.animation,
         builder: (ctx, child) {
@@ -319,9 +221,8 @@ class Tools {
             child: Padding(
               padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: bar(context),
-              ),
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: toolbar),
             )));
   }
 }

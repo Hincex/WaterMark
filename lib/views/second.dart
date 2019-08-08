@@ -34,7 +34,7 @@ class SecondState extends State<Second> with TickerProviderStateMixin {
     //先添加一个添加按钮
     Usr.usr.insert(0, addCard());
     Setting.info.forEach((value) {
-      Usr.usr.add(Setting.usrCard(context, value));
+      if (value != null) Usr.usr.add(Setting.usrCard(context, value));
     });
     super.initState();
   }
@@ -44,7 +44,7 @@ class SecondState extends State<Second> with TickerProviderStateMixin {
     Usr.usr.clear();
     Usr.usr.insert(0, addCard());
     Setting.info.forEach((value) {
-      Usr.usr.add(Setting.usrCard(context, value));
+      if (value != null) Usr.usr.add(Setting.usrCard(context, value));
     });
     super.didChangeDependencies();
   }

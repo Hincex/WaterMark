@@ -13,17 +13,66 @@ import '../models/user_setting.dart';
 // import 'package:package_info/package_info.dart';
 import 'package:device_info/device_info.dart';
 
+CurvedAnimation curved; //曲线动画，动画插值，
+CurvedAnimation light; //曲线动画，动画插值，
+
+AnimationController controller; //动画控制器
+AnimationController lightcontroller; //动画控制器
+
 class Third extends StatefulWidget {
   @override
   ThirdState createState() => ThirdState();
 }
 
-class ThirdState extends State<Third> with TickerProviderStateMixin {
-  CurvedAnimation curved; //曲线动画，动画插值，
-  CurvedAnimation light; //曲线动画，动画插值，
+class ListCard extends StatelessWidget {
+  final Widget title, leading, subtitle, trailing;
+  final Function func;
+  ListCard({this.title, this.leading, this.subtitle, this.trailing, this.func});
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      clipBehavior: Clip.hardEdge,
+      margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15.0))),
+      child: ListTile(
+          title: title,
+          leading: leading,
+          subtitle: subtitle,
+          trailing: trailing,
+          onTap: () => func()),
+    );
+  }
+}
 
-  AnimationController controller; //动画控制器
-  AnimationController lightcontroller; //动画控制器
+class LightMode extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: light,
+      builder: (ctx, child) {
+        return Transform.rotate(
+          angle: -pi / 2 * light.value,
+          child: Container(
+            margin: EdgeInsets.only(top: 10),
+            child: IconButton(
+              icon: Icon(Themes.dark ? Icons.brightness_2 : Icons.brightness_5,
+                  color: Themes.dark ? Colors.purple : Colors.orange),
+              onPressed: () {
+                ThemeUtil.themeMode(context);
+                lightcontroller.forward().then((f) {
+                  lightcontroller.reverse();
+                });
+              },
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class ThirdState extends State<Third> with TickerProviderStateMixin {
   String sDocumenttempDir;
   String sDocumentDir;
   String sDCardDir;
@@ -76,58 +125,46 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
     super.dispose();
   }
 
-  //列表卡片
-  Card listCard(Widget childWidget) {
-    return Card(
-      clipBehavior: Clip.hardEdge,
-      margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(15.0))),
-      child: childWidget,
-    );
-  }
-
   //导出路径
   Widget outputPath() {
-    return listCard(ListTile(
-      title: Text('导出路径'),
-      leading: Icon(Icons.folder),
-      subtitle: sDocumentDir == null ? null : Text(sDocumentDir),
-      onTap: () async {
-        // PackageInfo.fromPlatform().then((PackageInfo packageInfo) {
-        //   String appName = packageInfo.appName;
-        //   String packageName = packageInfo.packageName;
-        //   String version = packageInfo.version;
-        //   String buildNumber = packageInfo.buildNumber;
-        //   print(appName);
-        // });
-        // String sDocumentDir = (await getApplicationDocumentsDirectory()).path;
-        // debugPrint(sDocumentDir);
-      },
-    ));
+    return ListCard(
+        title: Text('导出路径'),
+        leading: Icon(Icons.folder),
+        subtitle: sDocumentDir == null ? null : Text(sDocumentDir),
+        func: () async {
+          // PackageInfo.fromPlatform().then((PackageInfo packageInfo) {
+          //   String appName = packageInfo.appName;
+          //   String packageName = packageInfo.packageName;
+          //   String version = packageInfo.version;
+          //   String buildNumber = packageInfo.buildNumber;
+          //   print(appName);
+          // });
+          // String sDocumentDir = (await getApplicationDocumentsDirectory()).path;
+          // debugPrint(sDocumentDir);
+        });
   }
 
   //设备信息
   Widget deviceList() {
-    return listCard(ListTile(
+    return ListCard(
       title: Text('设备信息'),
       leading: Icon(Icons.phone_android),
       trailing: Text(
         device != null ? device : '未知设备',
         style: TextStyle(color: Colors.grey),
       ),
-      onTap: () async {},
-    ));
+      func: () {},
+    );
   }
 
   //导出质量选项
   Widget outputQuality() {
-    return listCard(ListTile(
+    return ListCard(
       title: Text('导出质量'),
       leading: Icon(Icons.sd_card),
       trailing: Text(Setting.outputQuality['outputQualityText'],
           style: TextStyle(color: Colors.grey)),
-      onTap: () async {
+      func: () async {
         SharedPreferences pref = await SharedPreferences.getInstance();
         CustomSimpleDialog.dialog(context, '导出质量选择', [
           ListTile(
@@ -174,45 +211,20 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
           )
         ]);
       },
-    ));
+    );
   }
 
   Widget theme() {
-    return listCard(ListTile(
-      title: Text('主题选择'),
-      leading: Icon(Icons.palette),
-      trailing: CircleAvatar(
-        radius: 15,
-        backgroundColor: Provider.of<CommonModel>(context).color,
-      ),
-      onTap: () async {
-        ThemeUtil.selectTheme(context);
-      },
-    ));
-  }
-
-  Widget lightMode() {
-    return AnimatedBuilder(
-      animation: light,
-      builder: (ctx, child) {
-        return Transform.rotate(
-          angle: -pi / 2 * light.value,
-          child: Container(
-            margin: EdgeInsets.only(top: 10),
-            child: IconButton(
-              icon: Icon(Themes.dark ? Icons.brightness_2 : Icons.brightness_5,
-                  color: Themes.dark ? Colors.purple : Colors.orange),
-              onPressed: () {
-                ThemeUtil.themeMode(context);
-                lightcontroller.forward().then((f) {
-                  lightcontroller.reverse();
-                });
-              },
-            ),
-          ),
-        );
-      },
-    );
+    return ListCard(
+        title: Text('主题选择'),
+        leading: Icon(Icons.palette),
+        trailing: CircleAvatar(
+          radius: 15,
+          backgroundColor: Provider.of<CommonModel>(context).color,
+        ),
+        func: () async {
+          ThemeUtil.selectTheme(context);
+        });
   }
 
   @override
@@ -238,7 +250,7 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
                       theme(),
                       outputQuality(),
                       deviceList(),
-                      lightMode(),
+                      LightMode(),
                     ],
                   ),
                 );
