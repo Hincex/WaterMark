@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:new_app/config/theme_data.dart';
+import 'package:new_app/models/user_setting.dart';
 import 'package:new_app/utils/pics_util.dart';
 // import 'package:photo_view/photo_view.dart';
 import 'package:toast/toast.dart';
@@ -8,13 +9,9 @@ import '../models/mark.dart';
 import '../utils/tools_util.dart';
 import '../models/brand.dart';
 import '../models/public.dart';
-import '../models/user_setting.dart';
 import '../utils/loading.dart';
 import 'package:flutter/animation.dart';
 import '../widgets/animated_floating_button.dart';
-//本页数据模型
-import 'package:provider/provider.dart';
-import 'package:new_app/config/provider_config.dart';
 
 class FirstDetail extends StatefulWidget {
   @override
@@ -39,14 +36,27 @@ class FirstDetailState extends State<FirstDetail>
         CurvedAnimation(parent: ToolInfo.controller, curve: Curves.easeInOut));
     //初始化图片状态
     initPic();
-    Mark.mark[Brand.key].forEach((key, value) {
-      //然后添加到切换水印按钮中
-      Info.mark.add(Mark.markRatio(key, (val) {
-        Mark.key = val;
-        setState(() {});
-        Navigator.of(context).pop();
-      }));
-    });
+    //自定义
+    if (Setting.usrMark != null) {
+      Setting.info.forEach((value) {
+        Info.mark.add(Mark.usrMarkRatio(value, (value) {
+          Setting.usrMark = value;
+          setState(() {});
+          Navigator.of(context).pop();
+        }));
+      });
+    }
+    //非自定义
+    else {
+      Mark.mark[Brand.key].forEach((key, value) {
+        //然后添加到切换水印按钮中
+        Info.mark.add(Mark.markRatio(key, (val) {
+          Mark.key = val;
+          setState(() {});
+          Navigator.of(context).pop();
+        }));
+      });
+    }
     ToolInfo.floatbtn = true;
     ToolInfo.tool = false;
     ToolInfo.toolbar = false;
@@ -70,6 +80,8 @@ class FirstDetailState extends State<FirstDetail>
     Loading.loading = false;
     //清空已加载的水印列表
     Info.mark.clear();
+    //
+    Setting.usrMark = null;
     //避免内存泄漏
     ToolInfo.controller.dispose();
     super.dispose();
@@ -81,12 +93,6 @@ class FirstDetailState extends State<FirstDetail>
     WaterInfo.right = null;
     WaterInfo.bottom = 10;
     WaterInfo.left = 10;
-    PicInfo.height = 250;
-    // PicInfo.width = MediaQuery.of(context).size.width;
-  }
-
-  Widget bottomShow(BuildContext context) {
-    return null;
   }
 
   Widget mainScreen(BuildContext context) {
@@ -168,13 +174,36 @@ class FirstDetailState extends State<FirstDetail>
                                         WaterInfo.left = details.offset.dx;
                                       });
                                     },
-                                    feedback: Mark.mark[Brand.key][Mark.key]
-                                        ['pics'],
-                                    child: Mark.mark[Brand.key][Mark.key]
-                                        ['pics'],
+                                    feedback: Setting.usrMark != null
+                                        ? Image.asset(
+                                            Setting.usrMark
+                                                .replaceAll("File: ", '')
+                                                .replaceAll('\'', ''),
+                                            width: 200,
+                                            alignment: Alignment.topLeft)
+                                        : Mark.mark[Brand.key][Mark.key]
+                                            ['pics'],
+                                    child: Setting.usrMark != null
+                                        ? Image.asset(
+                                            Setting.usrMark
+                                                .replaceAll("File: ", '')
+                                                .replaceAll('\'', ''),
+                                            width: 200,
+                                            alignment: Alignment.topLeft)
+                                        : Mark.mark[Brand.key][Mark.key]
+                                            ['pics'],
                                     //原位置占位
-                                    childWhenDragging: Container(
-                                      child: null,
+                                    childWhenDragging: Opacity(
+                                      opacity: 0.5,
+                                      child: Setting.usrMark != null
+                                          ? Image.asset(
+                                              Setting.usrMark
+                                                  .replaceAll("File: ", '')
+                                                  .replaceAll('\'', ''),
+                                              width: 200,
+                                              alignment: Alignment.topLeft)
+                                          : Mark.mark[Brand.key][Mark.key]
+                                              ['pics'],
                                     ));
                               })),
                     ],
@@ -215,27 +244,31 @@ class FirstDetailState extends State<FirstDetail>
                 splashColor: Colors.transparent,
                 icon: Icon(Icons.save),
                 onPressed: () {
-                  //加载框刷新
-                  setState(() {
-                    Loading.loading = true;
-                  });
-                  //开始保存
-                  PicUtil.capturePng(globalKey).then((savedFile) {
-                    print('图片保存成功!导出路径为:$savedFile');
-                    if (savedFile != null) {
-                      setState(() {
-                        Loading.loading = false;
-                        Toast.show('保存成功', context,
-                            duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
-                      });
-                    } else {
-                      setState(() {
-                        Loading.loading = false;
-                        Toast.show('保存失败', context,
-                            duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
-                      });
-                    }
-                  });
+                  if (Loading.loading == false) {
+                    //加载框刷新
+                    setState(() {
+                      Loading.loading = true;
+                    });
+                    //开始保存
+                    PicUtil.capturePng(globalKey).then((savedFile) {
+                      print('图片保存成功!导出路径为:$savedFile');
+                      if (savedFile != null) {
+                        setState(() {
+                          Loading.loading = false;
+                          Toast.show('保存成功', context,
+                              duration: Toast.LENGTH_LONG,
+                              gravity: Toast.CENTER);
+                        });
+                      } else {
+                        setState(() {
+                          Loading.loading = false;
+                          Toast.show('保存失败', context,
+                              duration: Toast.LENGTH_LONG,
+                              gravity: Toast.CENTER);
+                        });
+                      }
+                    });
+                  }
                 },
               )
             ],

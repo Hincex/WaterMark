@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'brand.dart';
 
@@ -36,6 +35,33 @@ class Mark {
         ),
       }
     },
+    "Apple": {
+      0: {
+        'title': 'iphone XR',
+        'pics': Image.asset(
+          'public/mark/ipxr.png',
+          width: 200,
+        ),
+      }
+    },
+    "Samsung": {
+      0: {
+        'title': 'samsung s10',
+        'pics': Image.asset(
+          'public/mark/samsungs10.png',
+          width: 200,
+        ),
+      }
+    },
+    "1pondo": {
+      0: {
+        'title': 'samsung s10',
+        'pics': Image.asset(
+          'public/mark/1pondo.png',
+          width: 200,
+        ),
+      }
+    },
     "Xiaomi": {
       0: {
         'title': 'mi8UD',
@@ -46,18 +72,27 @@ class Mark {
       }
     }
   };
-  static List _tools = [
-    Container(
-      height: 100,
-      width: 100,
-      decoration: BoxDecoration(color: Colors.black),
-    )
-  ];
+
+  //水印列表
   static Widget markRatio(int key, Function func) {
     return ListTile(
       // title: Text(Mark.mark[Brand.key][key]['title']),
       title: Center(
         child: Mark.mark[Brand.key][key]['pics'],
+      ),
+      onTap: () {
+        func(key);
+      },
+    );
+  }
+
+  //自定义水印列表
+  static Widget usrMarkRatio(String img, Function func) {
+    return ListTile(
+      // title: Text(Mark.mark[Brand.key][key]['title']),
+      title: Center(
+        child: Image.asset(img.replaceAll("File: ", '').replaceAll('\'', ''),
+            width: 200),
       ),
       onTap: () {
         func(key);

@@ -82,7 +82,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		7FVLCyc4fQAjl/GdIoSsXCrqpiM=
+		8OrO6YOPSDYO+E5t6qK2nhPH0ks=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
@@ -114,7 +114,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		KkG5IfJgeFoV4sRN9GS8FCNG+Go=
+		CuWrVLQj/YmI6t4dY5DfRd3pYQc=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -122,11 +122,11 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		UJ7lGjcKLxcyrvjmkgtOJIsJi4g=
+		bpl6yTZit3MscU8y6u7jaeNv18o=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		g3BUzyJLsAaD5dG96anN7HwDRXE=
+		sKsapAS08jggOEZnVrVZzPMv0wE=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -134,7 +134,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/LICENSE</key>
 		<data>
-		t3MZgpMt9E2UdrVBnp3EfP/A4Ow=
+		ccRqByiOdlzgAcAYXPSh9IHar9o=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.ttf</key>
 		<data>
@@ -146,11 +146,19 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		hfphezsiNajmF1CCFvOvxdRfvrg=
+		+xWaJify1hL2nGr7ksrAuQ2Mg+g=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
 		AlgKy1FbEPcZcd0kdJLLHtOy68I=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/public/brand/1pondo.png</key>
+		<data>
+		D8TX5XZfRqbJ8Ay43D4k4Oe38lo=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/public/brand/apple.png</key>
+		<data>
+		auGQhEVuxWTzVITIMrpZsm+qO10=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/public/brand/honor.png</key>
 		<data>
@@ -164,9 +172,21 @@
 		<data>
 		Os6YU18yVXjbUSI8ntUSJkRBbRI=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/public/brand/samsung.png</key>
+		<data>
+		GhG5w3qYwm4JWp+HJ5SV3MpZuWc=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/public/mark/1pondo.png</key>
+		<data>
+		LD+woEEZM3Kf49wCRNna6CDRp58=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/public/mark/honor10.png</key>
 		<data>
 		inSnzLFv4EkZfxemJygFTJ8KhRs=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/public/mark/ipxr.png</key>
+		<data>
+		LV3duVJurc4QFbWVWpzqj9neN8I=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/public/mark/mate20pro.png</key>
 		<data>
@@ -183,6 +203,10 @@
 		<key>Frameworks/App.framework/flutter_assets/public/mark/p30pro.png</key>
 		<data>
 		diYRdpvGsGEJQ8qZAVFPyjjaQOY=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/public/mark/samsungs10.png</key>
+		<data>
+		t3wBVBb/fwHiqHf0w0SS6Tclii8=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/vm_snapshot_data</key>
 		<data>
@@ -206,7 +230,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		0TMqNJezojtk1Gym0Ub8UHT2O5w=
+		/ZKqxxyqQBAI2BQPbxKssoYheNQ=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -428,11 +452,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7FVLCyc4fQAjl/GdIoSsXCrqpiM=
+			8OrO6YOPSDYO+E5t6qK2nhPH0ks=
 			</data>
 			<key>hash2</key>
 			<data>
-			xA+R0rYuqrqQlEAK+ursSYgWw0XilarcPqTzvQhrsJs=
+			WO6NBZufgZDHYoq5gTskvbApuHxa54vzax6t8YLSxRI=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
@@ -516,11 +540,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KkG5IfJgeFoV4sRN9GS8FCNG+Go=
+			CuWrVLQj/YmI6t4dY5DfRd3pYQc=
 			</data>
 			<key>hash2</key>
 			<data>
-			Aoo7vu+2ThPOVGk9TzZNJ3Z3dd09jUeINV5C7Hkk9ZU=
+			LRk4H1C8T7h7nyAvBU8BC+WHPUjahPM1Ozj337HuLr4=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -538,22 +562,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UJ7lGjcKLxcyrvjmkgtOJIsJi4g=
+			bpl6yTZit3MscU8y6u7jaeNv18o=
 			</data>
 			<key>hash2</key>
 			<data>
-			WhsD609E1GhQF9gl9Ky/pUoOLA0YHcIsEbNfOTN2X8E=
+			9DQUlJRUXwwr8Z84Ul13bK5NFl2Q7AVS1gPpw2OeMCU=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			g3BUzyJLsAaD5dG96anN7HwDRXE=
+			sKsapAS08jggOEZnVrVZzPMv0wE=
 			</data>
 			<key>hash2</key>
 			<data>
-			X+TSxm+TD8rXGIKJjzC6x27R1DILOmcUuADLTpqnMtE=
+			K9Y05U9wHpXyzrHqXRdd5WcBRVZ8+lcbJSk/flpApzM=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -571,11 +595,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			t3MZgpMt9E2UdrVBnp3EfP/A4Ow=
+			ccRqByiOdlzgAcAYXPSh9IHar9o=
 			</data>
 			<key>hash2</key>
 			<data>
-			38DfaDobMCZdNAe1/OXElfPE5rhNtME31ccruaLA7CA=
+			WaSCH4dUlW3fl1ZNUIzNNlugl2aCB6iI0ZDRu3wqQgI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.ttf</key>
@@ -604,11 +628,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hfphezsiNajmF1CCFvOvxdRfvrg=
+			+xWaJify1hL2nGr7ksrAuQ2Mg+g=
 			</data>
 			<key>hash2</key>
 			<data>
-			8KVyyZVZH4m+7O8G8hAMxc7l2VfrhqQHdLyOsaPRLmk=
+			76UftoJNbNWdJzYS/YXBlq4xWnamWPvqXbd1lhRPZkk=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -620,6 +644,28 @@
 			<key>hash2</key>
 			<data>
 			ETQZmaktT/cBMTCTNJd49hWX7HSYPa18vp5zuIwK13c=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/public/brand/1pondo.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			D8TX5XZfRqbJ8Ay43D4k4Oe38lo=
+			</data>
+			<key>hash2</key>
+			<data>
+			wBsIUmfPbXgV/hBUyUJs0MKbT3HhZ5ErpT53jQVTQ1I=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/public/brand/apple.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			auGQhEVuxWTzVITIMrpZsm+qO10=
+			</data>
+			<key>hash2</key>
+			<data>
+			MTdAggT8786CoKgEg3uOh2WhBota0F+POHZsVapq0ng=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/public/brand/honor.png</key>
@@ -655,6 +701,28 @@
 			wXb9C0dnFJnxOLNZTuU/3OKNvBEztftwicGT+GWJqSs=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/public/brand/samsung.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			GhG5w3qYwm4JWp+HJ5SV3MpZuWc=
+			</data>
+			<key>hash2</key>
+			<data>
+			hxy+9j9WhUKiwUcQjEX14KgtzybWtcP/tQtvKwXH274=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/public/mark/1pondo.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LD+woEEZM3Kf49wCRNna6CDRp58=
+			</data>
+			<key>hash2</key>
+			<data>
+			krCZGsk8UUTU6nhx1b05fKCSJ8kfY+nfISdEe4q47UM=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/public/mark/honor10.png</key>
 		<dict>
 			<key>hash</key>
@@ -664,6 +732,17 @@
 			<key>hash2</key>
 			<data>
 			9BiRFJkKGyrTn1Im3tb4bnZ6/yQX+3h6eHIP2WEyUd0=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/public/mark/ipxr.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LV3duVJurc4QFbWVWpzqj9neN8I=
+			</data>
+			<key>hash2</key>
+			<data>
+			ZlQqJj6GtcnB0ccqjmeN+8ZjvT2Dyoz70tQuX0BktCY=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/public/mark/mate20pro.png</key>
@@ -708,6 +787,17 @@
 			<key>hash2</key>
 			<data>
 			NvucMnojMhq8hnyHpMOq58lZytUulD43TjZJjGgpz90=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/public/mark/samsungs10.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			t3wBVBb/fwHiqHf0w0SS6Tclii8=
+			</data>
+			<key>hash2</key>
+			<data>
+			wtDjYaxlRB1zwVAZLMhovrNTtO2SvT5qxFC0i1NIhVs=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/vm_snapshot_data</key>

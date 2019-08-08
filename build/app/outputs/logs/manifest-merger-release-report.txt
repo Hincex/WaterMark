@@ -6,8 +6,10 @@ INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidMan
 INJECTED from /Users/vincehe/flutter/git/New_App/android/app/src/main/AndroidManifest.xml:1:1-37:12
 MERGED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:2:1-23:12
 MERGED from [:shared_preferences] /Users/vincehe/flutter/git/New_App/build/shared_preferences/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:2:1-7:12
+MERGED from [:sqflite] /Users/vincehe/flutter/git/New_App/build/sqflite/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:2:1-7:12
 MERGED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:2:1-22:12
 MERGED from [:path_provider] /Users/vincehe/flutter/git/New_App/build/path_provider/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:2:1-7:12
+MERGED from [:device_info] /Users/vincehe/flutter/git/New_App/build/device_info/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/legacy-support-v4-1.0.0.aar/a0371cbdec310ea0ff2524c4359653b9/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.media:media:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b959f54a95f3a14632fd83e4d8d24fab/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0.aar/e8ca66b341addd505ed46b9d5fceb836/AndroidManifest.xml:17:1-22:12
@@ -130,10 +132,14 @@ MERGED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image
 MERGED from [:image_picker_saver] /Users/vincehe/flutter/git/New_App/build/image_picker_saver/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences] /Users/vincehe/flutter/git/New_App/build/shared_preferences/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences] /Users/vincehe/flutter/git/New_App/build/shared_preferences/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] /Users/vincehe/flutter/git/New_App/build/sqflite/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] /Users/vincehe/flutter/git/New_App/build/sqflite/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [:image_picker] /Users/vincehe/flutter/git/New_App/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] /Users/vincehe/flutter/git/New_App/build/path_provider/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] /Users/vincehe/flutter/git/New_App/build/path_provider/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:device_info] /Users/vincehe/flutter/git/New_App/build/device_info/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:device_info] /Users/vincehe/flutter/git/New_App/build/device_info/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/legacy-support-v4-1.0.0.aar/a0371cbdec310ea0ff2524c4359653b9/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/legacy-support-v4-1.0.0.aar/a0371cbdec310ea0ff2524c4359653b9/AndroidManifest.xml:20:5-44
 MERGED from [androidx.media:media:1.0.0] /Users/vincehe/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b959f54a95f3a14632fd83e4d8d24fab/AndroidManifest.xml:20:5-44

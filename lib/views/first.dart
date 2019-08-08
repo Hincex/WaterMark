@@ -49,7 +49,7 @@ class FirstState extends State<First> with TickerProviderStateMixin {
               offset: Offset(0, (curved.value)),
               child: Card(
                   clipBehavior: Clip.hardEdge,
-                  margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                  margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(15.0))),
                   child: InkWell(
@@ -109,6 +109,7 @@ class FirstState extends State<First> with TickerProviderStateMixin {
             elevation: 0,
           ),
           body: ListView(
+            padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
             children: <Widget>[
               //生成列表
               ListView.builder(

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:new_app/config/theme_data.dart';
+import 'package:new_app/models/user_setting.dart';
 import 'package:new_app/views/first_detail.dart';
 import 'package:new_app/widgets/dialog.dart';
 import 'package:provider/provider.dart';
 import '../config/provider_config.dart';
-import 'dart:math';
 
 //工具信息
 class ToolInfo {
@@ -43,10 +44,10 @@ class Tools {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(Icons.chevron_left, color: Theme.of(context).primaryColor),
+            Icon(Icons.chevron_left, color: Colors.white),
             Text(
               '返回',
-              style: TextStyle(color: Theme.of(context).primaryColor),
+              style: TextStyle(color: Colors.white),
             ),
           ],
         ),
@@ -67,10 +68,10 @@ class Tools {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(Icons.swap_vert, color: Theme.of(context).primaryColor),
+            Icon(Icons.swap_vert, color: Colors.white),
             Text(
               '水印位置',
-              style: TextStyle(color: Theme.of(context).primaryColor),
+              style: TextStyle(color: Colors.white),
             ),
           ],
         ),
@@ -90,10 +91,10 @@ class Tools {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(Icons.arrow_upward, color: Theme.of(context).primaryColor),
+            Icon(Icons.arrow_upward, color: Colors.white),
             Text(
               '向上',
-              style: TextStyle(color: Theme.of(context).primaryColor),
+              style: TextStyle(color: Colors.white),
             ),
           ],
         ),
@@ -113,10 +114,10 @@ class Tools {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(Icons.arrow_forward, color: Theme.of(context).primaryColor),
+            Icon(Icons.arrow_forward, color: Colors.white),
             Text(
               '向右',
-              style: TextStyle(color: Theme.of(context).primaryColor),
+              style: TextStyle(color: Colors.white),
             ),
           ],
         ),
@@ -136,10 +137,10 @@ class Tools {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(Icons.arrow_downward, color: Theme.of(context).primaryColor),
+            Icon(Icons.arrow_downward, color: Colors.white),
             Text(
               '向下',
-              style: TextStyle(color: Theme.of(context).primaryColor),
+              style: TextStyle(color: Colors.white),
             ),
           ],
         ),
@@ -159,10 +160,10 @@ class Tools {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(Icons.arrow_back, color: Theme.of(context).primaryColor),
+            Icon(Icons.arrow_back, color: Colors.white),
             Text(
               '向左',
-              style: TextStyle(color: Theme.of(context).primaryColor),
+              style: TextStyle(color: Colors.white),
             ),
           ],
         ),
@@ -182,10 +183,10 @@ class Tools {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(Icons.flight, color: Theme.of(context).primaryColor),
+            Icon(Icons.flight, color: Colors.white),
             Text(
               '步长',
-              style: TextStyle(color: Theme.of(context).primaryColor),
+              style: TextStyle(color: Colors.white),
             ),
           ],
         ),
@@ -200,7 +201,7 @@ class Tools {
   static Widget sliderBtn(BuildContext context) {
     return Container(
       child: Slider(
-        activeColor: Theme.of(context).primaryColor,
+        activeColor: Colors.white,
         min: 1,
         max: 100,
         value: WaterInfo.step,
@@ -211,7 +212,7 @@ class Tools {
     );
   }
 
-  //水印位置按钮
+  //切换水印按钮
   static Widget changeBtn(BuildContext context) {
     return Container(
         child: InkWell(
@@ -220,21 +221,30 @@ class Tools {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(Icons.phone_android, color: Theme.of(context).primaryColor),
+            Icon(Icons.phone_android, color: Colors.white),
             Text(
               '切换水印',
-              style: TextStyle(color: Theme.of(context).primaryColor),
+              style: TextStyle(color: Colors.white),
             ),
           ],
         ),
       ),
       onTap: () {
-        CustomSimpleDialog.dialog(
-            context,
-            '水印列表',
-            Info.mark.map((radio) => radio).toList(),
-            Colors.white,
-            Colors.black);
+        if (Setting.usrMark != null) {
+          CustomSimpleDialog.dialog(
+              context,
+              '自定义水印列表',
+              Info.mark.map((radio) => radio).toList(),
+              Colors.white,
+              Colors.black);
+        } else {
+          CustomSimpleDialog.dialog(
+              context,
+              '水印列表',
+              Info.mark.map((radio) => radio).toList(),
+              Colors.white,
+              Colors.black);
+        }
       },
     ));
   }
@@ -248,10 +258,10 @@ class Tools {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(Icons.refresh, color: Theme.of(context).primaryColor),
+            Icon(Icons.refresh, color: Colors.white),
             Text(
               '重置修改',
-              style: TextStyle(color: Theme.of(context).primaryColor),
+              style: TextStyle(color: Colors.white),
             ),
           ],
         ),
@@ -285,7 +295,7 @@ class Tools {
         sliderBtn(context),
         Text(
           WaterInfo.step.roundToDouble().toString() + 'px',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         )
       ];
     }
@@ -303,7 +313,8 @@ class Tools {
         child: Container(
             width: MediaQuery.of(context).size.width - 100,
             decoration: BoxDecoration(
-                color: Theme.of(context).backgroundColor,
+                color:
+                    Themes.dark ? Colors.grey : Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular((15.0))),
             child: Padding(
               padding: EdgeInsets.fromLTRB(20, 0, 20, 0),

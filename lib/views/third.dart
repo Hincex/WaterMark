@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'dart:math';
 import 'dart:io';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:new_app/config/provider_config.dart';
 import 'package:new_app/config/theme_data.dart';
@@ -9,8 +9,9 @@ import 'package:new_app/widgets/dialog.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:toast/toast.dart';
 import '../models/user_setting.dart';
+// import 'package:package_info/package_info.dart';
+import 'package:device_info/device_info.dart';
 
 class Third extends StatefulWidget {
   @override
@@ -23,10 +24,26 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
 
   AnimationController controller; //动画控制器
   AnimationController lightcontroller; //动画控制器
+  String sDocumenttempDir;
   String sDocumentDir;
-
+  String sDCardDir;
+  DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+  String device;
   Future getUserSetting() async {
-    sDocumentDir = (await getApplicationDocumentsDirectory()).toString();
+    if (Platform.isAndroid) {
+      sDocumenttempDir = (await getExternalStorageDirectory()).toString();
+      //去除首尾
+      sDocumentDir =
+          sDocumenttempDir.replaceAll('\'', '').replaceAll('Directory: /', '');
+    }
+    sDocumentDir = '内部存储/Pictures/';
+    if (Platform.isAndroid) {
+      AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+      device = androidInfo.model;
+    } else if (Platform.isIOS) {
+      IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+      device = iosInfo.utsname.machine;
+    }
     SharedPreferences pref = await SharedPreferences.getInstance();
     double outputQuality = pref.getDouble("outputQuality");
     String outputQualityText = pref.getString("outputQualityText");
@@ -49,6 +66,7 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
     controller.forward().then((f) {
       // controller.reverse();
     });
+
     super.initState();
   }
 
@@ -62,7 +80,7 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
   Card listCard(Widget childWidget) {
     return Card(
       clipBehavior: Clip.hardEdge,
-      margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+      margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(15.0))),
       child: childWidget,
@@ -76,9 +94,29 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
       leading: Icon(Icons.folder),
       subtitle: sDocumentDir == null ? null : Text(sDocumentDir),
       onTap: () async {
+        // PackageInfo.fromPlatform().then((PackageInfo packageInfo) {
+        //   String appName = packageInfo.appName;
+        //   String packageName = packageInfo.packageName;
+        //   String version = packageInfo.version;
+        //   String buildNumber = packageInfo.buildNumber;
+        //   print(appName);
+        // });
         // String sDocumentDir = (await getApplicationDocumentsDirectory()).path;
         // debugPrint(sDocumentDir);
       },
+    ));
+  }
+
+  //设备信息
+  Widget deviceList() {
+    return listCard(ListTile(
+      title: Text('设备信息'),
+      leading: Icon(Icons.phone_android),
+      trailing: Text(
+        device != null ? device : '未知设备',
+        style: TextStyle(color: Colors.grey),
+      ),
+      onTap: () async {},
     ));
   }
 
@@ -194,10 +232,12 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
                 return Transform.translate(
                   offset: Offset(0, (curved.value)),
                   child: ListView(
+                    padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
                     children: <Widget>[
                       outputPath(),
-                      outputQuality(),
                       theme(),
+                      outputQuality(),
+                      deviceList(),
                       lightMode(),
                     ],
                   ),

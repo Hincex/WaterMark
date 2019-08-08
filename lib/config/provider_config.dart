@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:new_app/config/theme_data.dart';
+import 'package:new_app/models/user_setting.dart';
 import 'package:new_app/utils/tools_util.dart' as prefix0;
+import 'package:new_app/views/second.dart';
 import '../utils/tools_util.dart';
 
 class CommonModel with ChangeNotifier {
@@ -11,6 +13,8 @@ class CommonModel with ChangeNotifier {
   //初始主题的primaryColor
   Color color = Themes.themeData.primaryColor;
   ThemeData themeUsr = Themes.themeData;
+  List usrcard = [];
+
   //执行第一个通知
   CommonModel(this._indexTheme);
 
@@ -99,6 +103,22 @@ class CommonModel with ChangeNotifier {
   void resetUtil() {
     WaterInfo.bottom = 10;
     WaterInfo.left = 10;
+    //通知consumer
+    notifyListeners();
+  }
+
+  void addUsr(BuildContext context, String path) {
+    Setting.info.add(path);
+    //通知界面
+    Usr.usr.add(Setting.usrCard(context, path));
+    //通知consumer
+    notifyListeners();
+  }
+
+  void deleteUsr(BuildContext context, String path) {
+    Setting.info.remove(path);
+    //通知界面
+    Usr.usr.remove(Setting.usrCard(context, path));
     //通知consumer
     notifyListeners();
   }

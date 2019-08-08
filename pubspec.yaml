@@ -36,7 +36,15 @@ dependencies:
   # image_gallery_saver: 
   shared_preferences:
   # 文件路径
-  path_provider:
+  path_provider: 
+  # 数据库
+  sqflite:
+  # 包名查看
+  # package_info:
+  # 设备信息
+  device_info:
+  # 图片处理
+  image: 
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -56,16 +64,19 @@ flutter:
   assets:
     - public/mark/mate20x.png
     - public/mark/p30pro.png
-    - public/mark/honor10.png
     - public/mark/mate20pro.png
+    - public/mark/ipxr.png
+    - public/mark/samsungs10.png
+    - public/mark/1pondo.png
+    - public/mark/honor10.png
     - public/mark/mi8UD.png
-
 
     - public/brand/huawei.png
     - public/brand/honor.png
+    - public/brand/apple.png
+    - public/brand/1pondo.png
+    - public/brand/samsung.png
     - public/brand/mi.png
-
-
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -5,4 +5,5 @@ class PublicInfo {
   static File img;
   //自定义水印
   static File usrMark;
+  static List userMark = [];
 }

@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:new_app/config/floating_border.dart';
-import 'package:new_app/views/first_detail.dart';
+import 'package:new_app/config/theme_data.dart';
 import '../utils/tools_util.dart';
 import 'package:provider/provider.dart';
 import '../config/provider_config.dart';
@@ -33,7 +33,6 @@ class _AnimatedFloatingButtonState extends State<AnimatedFloatingButton>
   @override
   void dispose() {
     _controller.dispose();
-    print('disposed');
     super.dispose();
   }
 
@@ -60,10 +59,11 @@ class _AnimatedFloatingButtonState extends State<AnimatedFloatingButton>
             child: Icon(
               Icons.arrow_upward,
               size: 25,
-              color: widget.bgColor ?? Theme.of(context).primaryColor,
+              color: Themes.dark ? Colors.white : Colors.white,
             ),
           ),
-          backgroundColor: Colors.white,
+          backgroundColor:
+              Themes.dark ? Colors.grey : Theme.of(context).primaryColor,
           // shape: FloatingBorder(),
         ),
       ),
