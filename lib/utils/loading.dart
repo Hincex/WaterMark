@@ -3,9 +3,9 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loading extends StatelessWidget {
   static bool loading;
-  Widget child;
-  String loadingText;
-  bool isloading;
+  final Widget child;
+  final String loadingText;
+  final bool isloading;
   Loading({this.child, this.loadingText, this.isloading});
   @override
   Widget build(BuildContext context) {

@@ -138,36 +138,88 @@ class FirstDetailState extends State<FirstDetail>
                             builder: (context, candidateData, rejectedData) {
                               return Draggable(
                                   onDragEnd: (details) {
-//                                        print(details.offset.dx);
-                                    print(details.offset.dy);
-                                    print(globalKey.currentContext.size.height);
-                                    print(appbar.currentContext.size.height);
-                                    //图片尺寸小于屏时
-                                    if (globalKey.currentContext.size.height <
-                                        MediaQuery.of(context).size.height) {
-                                      WaterInfo.bottom = MediaQuery.of(context)
-                                              .size
-                                              .height +
-                                          appbar.currentContext.size.height -
-                                          details.offset.dy -
-                                          (MediaQuery.of(context).size.height +
-                                                  appbar.currentContext.size
+                                    //自定义水印和自带水印偏移有出入
+                                    if (Setting.usrMark != null) {
+                                      setState(() {
+                                        WaterInfo.left = details.offset.dx;
+                                        print(details.offset.dy);
+                                        print(globalKey
+                                            .currentContext.size.height);
+                                        print(
+                                            appbar.currentContext.size.height);
+                                        //图片尺寸小于屏时
+                                        if (globalKey
+                                                .currentContext.size.height <
+                                            MediaQuery.of(context)
+                                                .size
+                                                .height) {
+                                          WaterInfo
+                                              .bottom = MediaQuery.of(context)
+                                                  .size
+                                                  .height -
+                                              details.offset.dy -
+                                              (MediaQuery.of(context)
+                                                          .size
+                                                          .height +
+                                                      appbar.currentContext.size
+                                                          .height -
+                                                      globalKey.currentContext
+                                                          .size.height) /
+                                                  2 -
+                                              100;
+                                        }
+                                        //当图片高度大于屏幕时
+                                        else {
+                                          WaterInfo.bottom =
+                                              MediaQuery.of(context)
+                                                      .size
                                                       .height -
-                                                  globalKey.currentContext.size
-                                                      .height) /
-                                              2 -
-                                          20;
+                                                  details.offset.dy;
+                                        }
+                                      });
+                                    } else {
+                                      print(details.offset.dx);
+                                      print(details.offset.dy);
+                                      print(
+                                          globalKey.currentContext.size.height);
+                                      print(appbar.currentContext.size.height);
+                                      setState(() {
+                                        //图片尺寸小于屏时
+                                        if (globalKey
+                                                .currentContext.size.height <
+                                            MediaQuery.of(context)
+                                                .size
+                                                .height) {
+                                          WaterInfo
+                                              .bottom = MediaQuery.of(context)
+                                                  .size
+                                                  .height +
+                                              appbar
+                                                  .currentContext.size.height -
+                                              details.offset.dy -
+                                              (MediaQuery.of(context)
+                                                          .size
+                                                          .height +
+                                                      appbar.currentContext.size
+                                                          .height -
+                                                      globalKey.currentContext
+                                                          .size.height) /
+                                                  2 -
+                                              20;
+                                        }
+                                        //当图片高度大于屏幕时
+                                        else {
+                                          WaterInfo.bottom =
+                                              MediaQuery.of(context)
+                                                      .size
+                                                      .height -
+                                                  details.offset.dy;
+                                        }
+                                        //强制刷新Widget
+                                        WaterInfo.left = details.offset.dx;
+                                      });
                                     }
-                                    //当图片高度大于屏幕时
-                                    else {
-                                      WaterInfo.bottom =
-                                          MediaQuery.of(context).size.height -
-                                              details.offset.dy;
-                                    }
-                                    //强制刷新Widget
-                                    setState(() {
-                                      WaterInfo.left = details.offset.dx;
-                                    });
+//
                                   },
                                   feedback: Setting.usrMark != null
                                       ? Image.asset(

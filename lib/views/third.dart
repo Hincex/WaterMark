@@ -9,6 +9,7 @@ import 'package:new_app/widgets/dialog.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../models/user_setting.dart';
 // import 'package:package_info/package_info.dart';
 import 'package:device_info/device_info.dart';
@@ -144,17 +145,17 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
         });
   }
 
-  //设备信息
-  Widget deviceList() {
+  Widget theme() {
     return ListCard(
-      title: Text('设备信息'),
-      leading: Icon(Icons.phone_android),
-      trailing: Text(
-        device != null ? device : '未知设备',
-        style: TextStyle(color: Colors.grey),
-      ),
-      func: () {},
-    );
+        title: Text('主题选择'),
+        leading: Icon(Icons.palette),
+        trailing: CircleAvatar(
+          radius: 15,
+          backgroundColor: Provider.of<CommonModel>(context).color,
+        ),
+        func: () async {
+          ThemeUtil.selectTheme(context);
+        });
   }
 
   //导出质量选项
@@ -214,17 +215,37 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
     );
   }
 
-  Widget theme() {
+  //设备信息
+  Widget deviceList() {
     return ListCard(
-        title: Text('主题选择'),
-        leading: Icon(Icons.palette),
-        trailing: CircleAvatar(
-          radius: 15,
-          backgroundColor: Provider.of<CommonModel>(context).color,
-        ),
-        func: () async {
-          ThemeUtil.selectTheme(context);
-        });
+      title: Text('设备信息'),
+      leading: Icon(Icons.phone_android),
+      trailing: Text(
+        device != null ? device : '未知设备',
+        style: TextStyle(color: Colors.grey),
+      ),
+      func: () {},
+    );
+  }
+
+  //项目地址
+  Widget projectUrl() {
+    return ListCard(
+      title: Text('项目地址'),
+      leading: Icon(Icons.code),
+      trailing: Text(
+        '喜欢就点个star8~',
+        style: TextStyle(color: Colors.grey),
+      ),
+      func: () async {
+        const url = 'https://github.com/Vincehx97/WaterMark';
+        if (await canLaunch(url)) {
+          await launch(url);
+        } else {
+          throw '无法加载 $url';
+        }
+      },
+    );
   }
 
   @override
@@ -250,6 +271,7 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
                       theme(),
                       outputQuality(),
                       deviceList(),
+                      projectUrl(),
                       LightMode(),
                     ],
                   ),
