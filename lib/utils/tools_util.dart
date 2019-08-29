@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/config/theme_data.dart';
 import 'package:new_app/models/user_setting.dart';
+import 'package:new_app/utils/pics_util.dart';
 import 'package:new_app/views/first_detail.dart';
 import 'package:new_app/widgets/dialog.dart';
 import 'package:provider/provider.dart';
+import 'package:toast/toast.dart';
 import '../config/provider_config.dart';
+import 'loading.dart';
 
 //工具信息
 class ToolInfo {
@@ -23,9 +26,9 @@ class ToolInfo {
 class WaterInfo {
   static double top;
   static double right;
-  static double bottom = 10;
-  static double left = 10;
-  static double step = 5;
+  static double bottom = PicInfo.height / 25;
+  static double left = PicInfo.width / 25;
+  static double step = 10;
 }
 
 //图片信息
@@ -148,6 +151,12 @@ class Bar extends StatelessWidget {
             func: () {
               Provider.of<CommonModel>(context).resetUtil();
             }),
+        CommonBtn(
+            text: '保存图片',
+            icon: Icons.save,
+            func: () {
+              Provider.of<CommonModel>(context).saveImg(context);
+            }),
       ];
     } else if (ToolInfo.position) {
       toolbar = [
@@ -219,9 +228,9 @@ class Bar extends StatelessWidget {
                     Themes.dark ? Colors.grey : Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular((15.0))),
             child: Padding(
-              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+              padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
               child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: toolbar),
             )));
   }

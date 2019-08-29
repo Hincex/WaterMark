@@ -49,26 +49,25 @@ class ListCard extends StatelessWidget {
 class LightMode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: light,
-      builder: (ctx, child) {
-        return Transform.rotate(
-          angle: -pi / 2 * light.value,
-          child: Container(
-            margin: EdgeInsets.only(top: 10),
-            child: IconButton(
-              icon: Icon(Themes.dark ? Icons.brightness_2 : Icons.brightness_5,
-                  color: Themes.dark ? Colors.purple : Colors.orange),
-              onPressed: () {
-                ThemeUtil.themeMode(context);
-                lightcontroller.forward().then((f) {
-                  lightcontroller.reverse();
-                });
-              },
-            ),
-          ),
-        );
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 300),
+      transitionBuilder: (Widget child, Animation<double> animation) {
+        return ScaleTransition(child: child, scale: animation);
       },
+      child: Container(
+        key: ValueKey(Themes.dark),
+        margin: EdgeInsets.only(top: 10),
+        child: IconButton(
+          icon: Icon(Themes.dark ? Icons.brightness_2 : Icons.brightness_5,
+              color: Themes.dark ? Colors.purple : Colors.orange),
+          onPressed: () {
+            ThemeUtil.themeMode(context);
+            lightcontroller.forward().then((f) {
+              lightcontroller.reverse();
+            });
+          },
+        ),
+      ),
     );
   }
 }
@@ -97,8 +96,10 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
     SharedPreferences pref = await SharedPreferences.getInstance();
     double outputQuality = pref.getDouble("outputQuality");
     String outputQualityText = pref.getString("outputQualityText");
+    String outputType = pref.getString("outputType");
     Setting.outputQuality['outputQuality'] = outputQuality;
     Setting.outputQuality['outputQualityText'] = outputQualityText;
+    Setting.outputType = outputType;
   }
 
   @override
@@ -142,6 +143,43 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
           // });
           // String sDocumentDir = (await getApplicationDocumentsDirectory()).path;
           // debugPrint(sDocumentDir);
+        });
+  }
+
+  Future setType(String type) async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    pref.setString('outputType', type);
+    Setting.outputType = type;
+  }
+
+  List types = ['JPEG', 'PNG', 'TGA'];
+  Widget outputType() {
+    return ListCard(
+        title: Text('导出格式'),
+        leading: Icon(Icons.insert_drive_file),
+        trailing:
+            Text(Setting.outputType, style: TextStyle(color: Colors.grey)),
+        func: () {
+          CustomSimpleDialog.dialog(
+              context,
+              '导出格式',
+              types.map((output) {
+                return ListTile(
+                  title: Text(output),
+                  trailing: CircleAvatar(
+                      child: Text(
+                        output,
+                        style: TextStyle(fontSize: 10, color: Colors.white),
+                      ),
+                      backgroundColor: Colors.blue),
+                  onTap: () {
+                    setState(() {
+                      setType(output);
+                    });
+                    Navigator.of(context).pop();
+                  },
+                );
+              }).toList());
         });
   }
 
@@ -268,6 +306,7 @@ class ThirdState extends State<Third> with TickerProviderStateMixin {
                     padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
                     children: <Widget>[
                       outputPath(),
+                      outputType(),
                       theme(),
                       outputQuality(),
                       deviceList(),

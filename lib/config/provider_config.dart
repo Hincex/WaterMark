@@ -1,9 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:new_app/config/theme_data.dart';
 import 'package:new_app/models/user_setting.dart';
-import 'package:new_app/utils/tools_util.dart' as prefix0;
+import 'package:new_app/utils/loading.dart';
+import 'package:new_app/utils/pics_util.dart';
+import 'package:new_app/views/first_detail.dart';
 import 'package:new_app/views/second.dart';
+import 'package:toast/toast.dart';
 import '../utils/tools_util.dart';
 
 class CommonModel with ChangeNotifier {
@@ -121,6 +126,32 @@ class CommonModel with ChangeNotifier {
     Usr.usr.remove(Setting.usrCard(context, path));
     //通知consumer
     notifyListeners();
+  }
+
+  void saveImg(BuildContext context) {
+    if (Loading.loading == false) {
+      //加载框刷新
+      Loading.loading = true;
+      //通知consumer
+      notifyListeners();
+      //开始保存
+      PicUtil.capturePng(Info.globalKey).then((savedFile) {
+        print('图片保存成功!导出路径为:$savedFile');
+        if (savedFile != null) {
+          Loading.loading = false;
+          // Toast.show('保存成功', context,
+          //     duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
+          //通知consumer
+          notifyListeners();
+        } else {
+          Loading.loading = false;
+          // Toast.show('保存失败', context,
+          // duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
+          //通知consumer
+          notifyListeners();
+        }
+      });
+    }
   }
 
   //通知获得的初始主题

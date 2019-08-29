@@ -12,6 +12,7 @@ import 'database_helper.dart';
 class Setting {
   // static double outputQuality;
   static Map outputQuality = {'outputQuality': 7.0, 'outputQualityText': '高'};
+  static String outputType = 'JPEG';
   static double speed = 1;
   static List<String> info = [];
   static var db = new DatabaseHelper();
@@ -32,13 +33,16 @@ class Setting {
     int themeIndex = pref.getInt("localTheme");
     if (themeIndex != null) {
       Themes.themeData = Themes.themes[themeIndex];
-      Themes.tempThemeData = Themes.themes[themeIndex];
-      return themeIndex;
+      Themes.tempThemeData =
+          themeIndex == 0 ? Themes.tempThemeData : Themes.themes[themeIndex];
+      Themes.dark = themeIndex == 0 ? true : false;
     } else {
       Themes.themeData = Themes.themes[1];
     }
     double outputQuality = pref.getDouble("outputQuality");
     String outputQualityText = pref.getString("outputQualityText");
+    String outputType = pref.getString("outputType");
+
     double speed = pref.getDouble("speed");
     if (speed != null) {
       Setting.speed = speed;
@@ -49,10 +53,13 @@ class Setting {
     if (outputQuality != null) {
       Setting.outputQuality['outputQuality'] = outputQuality;
       Setting.outputQuality['outputQualityText'] = outputQualityText;
+      Setting.outputType = outputType;
     } else {
       pref.setDouble('outputQuality', 7.0);
       pref.setString('outputQualityText', '高');
+      pref.setString('outputType', 'JPEG');
       Setting.outputQuality['quality'] = 7.0;
+      Setting.outputType = 'JPGE';
     }
   }
 
@@ -68,7 +75,7 @@ class Setting {
               child: Image.asset(
                   img.replaceAll("File: ", '').replaceAll('\'', '')),
               onLongPress: () {
-                CustomSimpleDialog.alert(context, '确认删除?', '将删除该水印', '确认', '取消',
+                CustomSimpleDialog.alert(context, '确认删除?', '将删除该水印', '删除', '取消',
                     () async {
                   Provider.of<CommonModel>(context).deleteUsr(context, img);
                   await db.deleteUsr(img);
@@ -115,5 +122,4 @@ class Setting {
               },
             )));
   }
-  
 }

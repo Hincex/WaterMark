@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:new_app/config/theme_data.dart';
 import 'package:new_app/models/user_setting.dart';
-import 'package:new_app/utils/pics_util.dart';
-// import 'package:photo_view/photo_view.dart';
-import 'package:toast/toast.dart';
+// import 'package:new_app/utils/pics_util.dart';
+import 'package:photo_view/photo_view.dart';
+// import 'package:toast/toast.dart';
 import '../models/mark.dart';
 import '../utils/tools_util.dart';
 import '../models/brand.dart';
@@ -20,12 +20,12 @@ class FirstDetail extends StatefulWidget {
 
 class Info {
   static List<Widget> mark = [];
+  static final GlobalKey globalKey = GlobalKey();
 }
 
 class FirstDetailState extends State<FirstDetail>
     with TickerProviderStateMixin {
   //分别是导出图片、appbar、图片的key
-  final GlobalKey globalKey = GlobalKey();
   final GlobalKey appbar = GlobalKey();
   final GlobalKey imgkey = GlobalKey();
   @override
@@ -91,179 +91,164 @@ class FirstDetailState extends State<FirstDetail>
   void initPic() {
     WaterInfo.top = null;
     WaterInfo.right = null;
-    WaterInfo.bottom = 10;
-    WaterInfo.left = 10;
+    WaterInfo.bottom = PicInfo.height / 25;
+    WaterInfo.left = PicInfo.width / 25;
+  }
+
+  Widget mark() {
+    return Setting.usrMark != null
+        ? Container(
+            width: PicInfo.width * 0.4,
+            height: PicInfo.height * 0.3,
+            alignment: Alignment.bottomLeft,
+            child: Image.asset(
+              Setting.usrMark.replaceAll("File: ", '').replaceAll('\'', ''),
+              // alignment: Alignment.topLeft),
+            )
+          )
+        : Container(
+            // decoration: BoxDecoration(color: Colors.black),
+            alignment: Alignment.bottomLeft,
+            width: PicInfo.width * 0.4,
+            height: PicInfo.height * 0.3,
+            child: Mark.mark[Brand.key][Mark.key]['pics'],
+          );
   }
 
   Widget mainScreen(BuildContext context) {
     return Loading(
-      child: Container(
-        decoration: BoxDecoration(color: Colors.black),
-        child: Stack(
-          overflow: Overflow.visible,
-          alignment: Alignment.bottomCenter,
-          children: <Widget>[
-            Center(
-                child: SingleChildScrollView(
-              child: RepaintBoundary(
-                key: globalKey,
-                child: //图片
-                    Stack(
-                  key: imgkey,
-                  children: <Widget>[
-                    Image.file(
-                      PublicInfo.img,
-                      // height: 2000,
-                      fit: BoxFit.fill,
-//                          width: MediaQuery.of(context).size.width,
-                      filterQuality: FilterQuality.high,
-                    ),
-                    //水印
-                    Positioned(
-                        top: WaterInfo.top == null ? null : WaterInfo.top,
-                        right: WaterInfo.right == null ? null : WaterInfo.right,
-                        bottom:
-                            WaterInfo.bottom == null ? null : WaterInfo.bottom,
-                        left: WaterInfo.left == null ? null : WaterInfo.left,
-                        child: DragTarget(
-                            onWillAccept: (data) {
-                              print("onWillAccept");
-                              return data !=
-                                  null; //当Draggable传递过来的dada不是null的时候 决定接收该数据。
-                            },
-                            onAccept: (data) {
-                              setState(() {});
-                            },
-                            onLeave: (data) {},
-                            builder: (context, candidateData, rejectedData) {
-                              return Draggable(
-                                  onDragEnd: (details) {
-                                    //自定义水印和自带水印偏移有出入
-                                    if (Setting.usrMark != null) {
-                                      setState(() {
-                                        WaterInfo.left = details.offset.dx;
-                                        print(details.offset.dy);
-                                        print(globalKey
-                                            .currentContext.size.height);
-                                        print(
-                                            appbar.currentContext.size.height);
-                                        //图片尺寸小于屏时
-                                        if (globalKey
-                                                .currentContext.size.height <
-                                            MediaQuery.of(context)
-                                                .size
-                                                .height) {
-                                          WaterInfo
-                                              .bottom = MediaQuery.of(context)
-                                                  .size
-                                                  .height -
-                                              details.offset.dy -
-                                              (MediaQuery.of(context)
-                                                          .size
-                                                          .height +
-                                                      appbar.currentContext.size
-                                                          .height -
-                                                      globalKey.currentContext
-                                                          .size.height) /
-                                                  2 -
-                                              100;
-                                        }
-                                        //当图片高度大于屏幕时
-                                        else {
-                                          WaterInfo.bottom =
-                                              MediaQuery.of(context)
-                                                      .size
-                                                      .height -
-                                                  details.offset.dy;
-                                        }
-                                      });
-                                    } else {
-                                      print(details.offset.dx);
-                                      print(details.offset.dy);
-                                      print(
-                                          globalKey.currentContext.size.height);
-                                      print(appbar.currentContext.size.height);
-                                      setState(() {
-                                        //图片尺寸小于屏时
-                                        if (globalKey
-                                                .currentContext.size.height <
-                                            MediaQuery.of(context)
-                                                .size
-                                                .height) {
-                                          WaterInfo
-                                              .bottom = MediaQuery.of(context)
-                                                  .size
-                                                  .height +
-                                              appbar
-                                                  .currentContext.size.height -
-                                              details.offset.dy -
-                                              (MediaQuery.of(context)
-                                                          .size
-                                                          .height +
-                                                      appbar.currentContext.size
-                                                          .height -
-                                                      globalKey.currentContext
-                                                          .size.height) /
-                                                  2 -
-                                              20;
-                                        }
-                                        //当图片高度大于屏幕时
-                                        else {
-                                          WaterInfo.bottom =
-                                              MediaQuery.of(context)
-                                                      .size
-                                                      .height -
-                                                  details.offset.dy;
-                                        }
-                                        //强制刷新Widget
-                                        WaterInfo.left = details.offset.dx;
-                                      });
-                                    }
-//
-                                  },
-                                  feedback: Setting.usrMark != null
-                                      ? Image.asset(
-                                          Setting.usrMark
-                                              .replaceAll("File: ", '')
-                                              .replaceAll('\'', ''),
-                                          width: 200,
-                                          alignment: Alignment.topLeft)
-                                      : Mark.mark[Brand.key][Mark.key]['pics'],
-                                  child: Setting.usrMark != null
-                                      ? Image.asset(
-                                          Setting.usrMark
-                                              .replaceAll("File: ", '')
-                                              .replaceAll('\'', ''),
-                                          width: 200,
-                                          alignment: Alignment.topLeft)
-                                      : Mark.mark[Brand.key][Mark.key]['pics'],
-                                  //原位置占位
-                                  childWhenDragging: Opacity(
-                                    opacity: 0.5,
-                                    child: Setting.usrMark != null
-                                        ? Image.asset(
-                                            Setting.usrMark
-                                                .replaceAll("File: ", '')
-                                                .replaceAll('\'', ''),
-                                            width: 200,
-                                            alignment: Alignment.topLeft)
-                                        : Mark.mark[Brand.key][Mark.key]
-                                            ['pics'],
-                                  ));
-                            })),
-                  ],
-                ),
-              ),
-            )),
-            Positioned(
-              bottom: 20,
-              child: ToolInfo.tool ? Bar() : SizedBox(),
-            )
-          ],
-        ),
-      ),
       loadingText: '保存中',
       isloading: Loading.loading,
+      child: Stack(
+        overflow: Overflow.visible,
+        alignment: Alignment.bottomCenter,
+        children: <Widget>[
+          PhotoView.customChild(
+            childSize: Size(PicInfo.width, PicInfo.height),
+            child: RepaintBoundary(
+              key: Info.globalKey,
+              child: //图片
+                  Stack(
+                key: imgkey,
+                children: <Widget>[
+                  Image.file(
+                    PublicInfo.img,
+                    height: PicInfo.height,
+                    fit: BoxFit.fill,
+                    width: PicInfo.width,
+                    filterQuality: FilterQuality.high,
+                  ),
+                  //水印
+                  Positioned(
+                      top: WaterInfo.top == null ? null : WaterInfo.top,
+                      right: WaterInfo.right == null ? null : WaterInfo.right,
+                      bottom:
+                          WaterInfo.bottom == null ? null : WaterInfo.bottom,
+                      left: WaterInfo.left == null ? null : WaterInfo.left,
+                      child: DragTarget(
+                          onWillAccept: (data) {
+                            print("onWillAccept");
+                            return data !=
+                                null; //当Draggable传递过来的dada不是null的时候 决定接收该数据。
+                          },
+                          onAccept: (data) {
+                            setState(() {});
+                          },
+                          onLeave: (data) {},
+                          builder: (context, candidateData, rejectedData) {
+                            return Draggable(
+                                onDragEnd: (details) {
+                                  //自定义水印和自带水印偏移有出入
+                                  if (Setting.usrMark != null) {
+                                    setState(() {
+                                      WaterInfo.left = details.offset.dx;
+                                      print(details.offset.dy);
+                                      print(Info.globalKey.currentContext.size
+                                          .height);
+                                      print(appbar.currentContext.size.height);
+                                      //图片尺寸小于屏时
+                                      if (Info.globalKey.currentContext.size
+                                              .height <
+                                          MediaQuery.of(context).size.height) {
+                                        WaterInfo.bottom =
+                                            MediaQuery.of(context).size.height -
+                                                details.offset.dy -
+                                                (MediaQuery.of(context)
+                                                            .size
+                                                            .height +
+                                                        appbar.currentContext
+                                                            .size.height -
+                                                        Info
+                                                            .globalKey
+                                                            .currentContext
+                                                            .size
+                                                            .height) /
+                                                    2 -
+                                                100;
+                                      }
+                                      //当图片高度大于屏幕时
+                                      else {
+                                        WaterInfo.bottom =
+                                            MediaQuery.of(context).size.height -
+                                                details.offset.dy;
+                                      }
+                                    });
+                                  } else {
+                                    print(details.offset.dx);
+                                    print(details.offset.dy);
+                                    print(Info
+                                        .globalKey.currentContext.size.height);
+                                    print(appbar.currentContext.size.height);
+                                    setState(() {
+                                      //图片尺寸小于屏幕时
+                                      if (Info.globalKey.currentContext.size
+                                              .height <
+                                          MediaQuery.of(context).size.height) {
+                                        WaterInfo.bottom =
+                                            MediaQuery.of(context).size.height +
+                                                appbar.currentContext.size
+                                                    .height -
+                                                details.offset.dy -
+                                                (MediaQuery.of(context)
+                                                            .size
+                                                            .height +
+                                                        appbar.currentContext
+                                                            .size.height -
+                                                        Info
+                                                            .globalKey
+                                                            .currentContext
+                                                            .size
+                                                            .height) /
+                                                    2 -
+                                                20;
+                                      }
+                                      //当图片高度大于屏幕时
+                                      else {
+                                        WaterInfo.bottom =
+                                            MediaQuery.of(context).size.height -
+                                                details.offset.dy;
+                                      }
+                                      //强制刷新Widget
+                                      WaterInfo.left = details.offset.dx;
+                                    });
+                                  }
+                                },
+                                feedback: mark(),
+                                child: mark(),
+                                //原位置占位
+                                childWhenDragging:
+                                    Opacity(opacity: 0.5, child: mark()));
+                          })),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            child: ToolInfo.tool ? Bar() : SizedBox(),
+          )
+        ],
+      ),
     );
   }
 
@@ -289,33 +274,33 @@ class FirstDetailState extends State<FirstDetail>
               IconButton(
                 highlightColor: Colors.transparent,
                 splashColor: Colors.transparent,
-                icon: Icon(Icons.save),
+                icon: Icon(Icons.info),
                 onPressed: () {
-                  if (Loading.loading == false) {
-                    //加载框刷新
-                    setState(() {
-                      Loading.loading = true;
-                    });
-                    //开始保存
-                    PicUtil.capturePng(globalKey).then((savedFile) {
-                      print('图片保存成功!导出路径为:$savedFile');
-                      if (savedFile != null) {
-                        setState(() {
-                          Loading.loading = false;
-                          Toast.show('保存成功', context,
-                              duration: Toast.LENGTH_LONG,
-                              gravity: Toast.CENTER);
-                        });
-                      } else {
-                        setState(() {
-                          Loading.loading = false;
-                          Toast.show('保存失败', context,
-                              duration: Toast.LENGTH_LONG,
-                              gravity: Toast.CENTER);
-                        });
-                      }
-                    });
-                  }
+                  // if (Loading.loading == false) {
+                  //   //加载框刷新
+                  //   setState(() {
+                  //     Loading.loading = true;
+                  //   });
+                  //   //开始保存
+                  //   PicUtil.capturePng(Info.globalKey).then((savedFile) {
+                  //     print('图片保存成功!导出路径为:$savedFile');
+                  //     if (savedFile != null) {
+                  //       setState(() {
+                  //         Loading.loading = false;
+                  //         Toast.show('保存成功', context,
+                  //             duration: Toast.LENGTH_LONG,
+                  //             gravity: Toast.CENTER);
+                  //       });
+                  //     } else {
+                  //       setState(() {
+                  //         Loading.loading = false;
+                  //         Toast.show('保存失败', context,
+                  //             duration: Toast.LENGTH_LONG,
+                  //             gravity: Toast.CENTER);
+                  //       });
+                  //     }
+                  //   });
+                  // }
                 },
               )
             ],

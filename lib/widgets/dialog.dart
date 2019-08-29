@@ -49,7 +49,10 @@ class CustomSimpleDialog {
                     },
                   ),
                   FlatButton(
-                    child: Text(ok),
+                    child: Text(
+                      ok,
+                      style: TextStyle(color: Colors.red),
+                    ),
                     onPressed: () {
                       if (func() != null) func();
                       Navigator.of(context).pop();

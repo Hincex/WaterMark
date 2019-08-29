@@ -3,71 +3,63 @@ import 'brand.dart';
 
 class Mark {
   static Map mark = {
-    "Huawei": {
+    "华为": {
       0: {
         'title': 'mate20x',
         'pics': Image.asset(
           'public/mark/mate20x.png',
-          width: 200,
         ),
       },
       1: {
         'title': 'mate20pro',
         'pics': Image.asset(
           'public/mark/mate20pro.png',
-          width: 200,
         ),
       },
       3: {
         'title': 'p30pro',
         'pics': Image.asset(
           'public/mark/p30pro.png',
-          width: 200,
         ),
       }
     },
-    "Honor": {
+    "荣耀": {
       0: {
         'title': 'honor10',
         'pics': Image.asset(
           'public/mark/honor10.png',
-          width: 200,
         ),
       }
     },
-    "Apple": {
+    "苹果": {
       0: {
         'title': 'iphone XR',
         'pics': Image.asset(
           'public/mark/ipxr.png',
-          width: 200,
         ),
       }
     },
-    "Samsung": {
+    "三星": {
       0: {
         'title': 'samsung s10',
         'pics': Image.asset(
           'public/mark/samsungs10.png',
-          width: 200,
         ),
       }
     },
-    "1pondo": {
+    "一本道": {
       0: {
         'title': 'samsung s10',
         'pics': Image.asset(
           'public/mark/1pondo.png',
-          width: 200,
         ),
       }
     },
-    "Xiaomi": {
+    "小米": {
       0: {
         'title': 'mi8UD',
         'pics': Image.asset(
           'public/mark/mi8UD.png',
-          width: 200,
         ),
       }
     }

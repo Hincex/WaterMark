@@ -7,8 +7,10 @@ import 'package:new_app/widgets/dialog.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
+// import 'package:toast/toast.dart';
 
 class ThemeUtil {
+  static int prevIndex;
   //本地持久化主题设置
   static void saveTheme(index) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -18,18 +20,28 @@ class ThemeUtil {
 
   //判断是否夜间模式
   static void setTheme(index, BuildContext context) {
-    if (Themes.dark) {
+    if (Themes.dark && index != 0) {
       Toast.show('请先关闭夜间模式！', context,
           duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER);
     } else {
-      Themes.tempThemeData = Themes.themes[index];
-      Themes.themeData = Themes.themes[index];
-      Provider.of<CommonModel>(context).themechange(Themes.themes[index]);
-      saveTheme(index);
       Timer(Duration(milliseconds: 50), () {
         // 只在倒计时结束时回调
-        Navigator.of(context).pop();
+        if (Navigator.of(context).canPop()) {
+          Navigator.of(context).pop();
+        }
       });
+      //记录当前数据
+      Themes.tempThemeData =
+          Themes.dark ? Themes.tempThemeData : Themes.themes[index];
+      // 记录显示数据
+      Themes.themeData = Themes.themes[index];
+      Provider.of<CommonModel>(context)
+          .themechange(Themes.dark ? Themes.themeData : Themes.tempThemeData);
+      if (index != 0 && Themes.dark) {
+        Themes.dark = !Themes.dark;
+      }
+      print(Themes.dark);
+      saveTheme(index);
     }
   }
 
@@ -39,6 +51,11 @@ class ThemeUtil {
     Themes.dark = !Themes.dark;
     /**主题切换逻辑 */
     Themes.themeData = Themes.dark ? Themes.themes[0] : Themes.tempThemeData;
+    if (Themes.dark) {
+      setTheme(0, context);
+    } else {
+      setTheme(Themes.themes.indexOf(Themes.tempThemeData), context);
+    }
     Provider.of<CommonModel>(context).themechange(Themes.themeData);
   }
 
